@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block "title" %}Taisymas{% endblock %}
+
+{% block "content" %}
+<h1>Taisymas {{ order.date }}</h1>
+<p><strong>Automobilis: </strong>{{ order.vehicle }}</p>
+<p><strong>Būsena: </strong>{{ order.get_status_display }}</p>
+<p><strong>Terminas: </strong>{{ order.deadline }}</p>
+<p><strong>Klientas: </strong><img class="rounded-circle account-img" style="width: 30px"
+                                   src="{{ order.client.profile.photo.url }}"> {{ order.client }}<br/></p>
+{% if order.client == user %}
+<div>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'order_update' order.pk %}">Redaguoti</a>
+    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'order_delete' order.pk %}">Ištrinti</a>
+</div>
+<div>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'orderline_new' order.pk %}">Pridėti paslaugą</a>
+</div>
+{% endif %}
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Paslauga</th>
+        <th>Kaina</th>
+        <th>Kiekis</th>
+        <th>Suma</th>
+        {% if order.client == user %}
+        <th></th>
+        {% endif %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for line in order.lines.all %}
+    <tr>
+        <td>{{ line.service.name }}</td>
+        <td>{{ line.service.price }}</td>
+        <td>{{ line.qty }}</td>
+        <td>{{ line.line_sum }}</td>
+        {% if order.client == user %}
+        <td class="d-flex">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'orderline_update' order.pk line.pk %}">Redaguoti</a>
+            <form method="POST" action="{% url 'orderline_delete' order.pk line.pk %}">
+                {% csrf_token %}<input class="btn btn-danger btn-sm mt-1 mb-1" type="submit" value="Ištrinti">
+            </form>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="3"><strong>BENDRA SUMA:</strong></td>
+        <td><strong>{{ order.total }}</strong></td>
+    </tr>
+    </tbody>
+</table>
+{% if user.is_authenticated %}
+<div class="fieldWrapper">
+    <hr>
+    <br/>
+    <h4>Palikite komentarą:</h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.content }}</br>
+        <input type="submit" value="Paskelbti">
+    </form>
+</div>
+{% endif %}
+<h4>Komentarai:</h4>
+{% if order.comments.all %}
+{% for comment in order.comments.all %}
+<hr>
+<strong>{{ comment.author }}</strong>, <em>{{ comment.date_created}}</em>
+<p>{{ comment.content }}</p>
+{% endfor %}
+{% else %}
+<p>Užsakymas neturi komentarų</p>
+{% endif %}
+{% endblock %}

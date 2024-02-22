@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block "title" %}Automobilis{% endblock %}
+
+{% block "content" %}
+{% load static %}
+{% if vehicle.photo %}
+<img src="{{ vehicle.photo.url }}" class="card-img-top" style="width: 80%; height: auto;" alt="...">
+{% else %}
+<img src="{% static 'img/auto-no-image.jpg' %}" class="card-img-top" style="width: 50%; height: auto;">
+{% endif %}
+<h1>Automobilis {{ vehicle.license_plate }}</h1>
+<p><strong>VIN kodas: </strong>{{ vehicle.vin_code }}</p>
+<p><strong>Modelis: </strong>{{ vehicle.vehicle_model }}</p>
+<p><strong>Klientas: </strong>{{ vehicle.client_name }}</p>
+<p>{{ vehicle.description|safe }}</p>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block "title" %}Paiškos rezultatai{% endblock %}
+
+{% block "content" %}
+<h1>Paieškos pagal užklausą "{{ query }}" rezultatai:</h1>
+{% if vehicles %}
+{% for vehicle in vehicles %}
+<p><a href="{% url 'vehicle' vehicle.pk %}">{{ vehicle }}</a></p>
+<hr>
+{% endfor %}
+{% else %}
+<p>Deja nieko neradome :(</p>
+{% endif %}
+{% endblock %}

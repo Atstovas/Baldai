@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block "title" %}Taisymai{% endblock %}
+
+{% block "content" %}
+<h1>Autoserviso taisymai:</h1>
+{% for order in orders %}
+<a href="{{ order.pk }}">{{ order }}</a>
+<hr>
+{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; pirmas</a>
+            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
+        {% endif %}
+
+        <span class="current">
+            {{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+<div>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'order_new' %}">Naujas taisymas</a>
+</div>
+{% endblock %}

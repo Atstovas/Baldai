@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block "title" %}Taisymo trynimas{% endblock%}
+{% block "content" %}
+<div class="content-section">
+    <form method="POST">
+        {% load crispy_forms_tags %}
+        {% csrf_token %}
+        <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Ištrinti taisymą</legend>
+            <h2>Ar tikrai norite ištrinti taisymą {{ order }}?</h2>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-danger" type="submit">Taip, ištrinti</button>
+            <a class="btn btn-outline-secondary" href="{% url 'order' order.pk %}">Atšaukti</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
