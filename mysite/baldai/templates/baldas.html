@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block "title" %}Automobilis{% endblock %}
+
+{% block "content" %}
+{% load static %}
+{% if baldas.photo %}
+<img src="{{ baldas.photo.url }}" class="card-img-top" style="width: 80%; height: auto;" alt="...">
+{% else %}
+<img src="{% static 'img/auto-no-image.jpg' %}" class="card-img-top" style="width: 50%; height: auto;">
+{% endif %}
+<h1>Automobilis {{ baldas.serijos_nr }}</h1>
+<p><strong>VIN kodas: </strong>{{ baldas.vin_code }}</p>
+<p><strong>Klientas: </strong>{{ baldas.client_name }}</p>
+<p>{{ baldas.description|safe }}</p>
+{% endblock %}

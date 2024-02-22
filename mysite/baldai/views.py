@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse
-from .models import Service, Order, Vehicle, OrderLine
+from .models import *
 from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -18,7 +18,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     num_services = Service.objects.all().count()
     num_orders_done = Order.objects.filter(status__exact='i').count()
-    num_vehicles = Vehicle.objects.all().count()
+    num_baldai = Baldas.objects.all().count()
 
     num_visits = request.session.get('num_visits', 1)
     request.session['num_visits'] = num_visits + 1
@@ -26,41 +26,41 @@ def index(request):
     result = {
         "num_services": num_services,
         "num_orders_done": num_orders_done,
-        "num_vehicles": num_vehicles,
+        "num_baldai": num_baldai,
         "num_visits": num_visits,
     }
     return render(request, template_name="index.html", context=result)
 
 
-def vehicles(request):
-    vehicles = Vehicle.objects.all()
-    paginator = Paginator(vehicles, per_page=3)
+def baldai(request):
+    baldai = Baldas.objects.all()
+    paginator = Paginator(baldai, per_page=3)
     page_number = request.GET.get("page")
-    paged_vehicles = paginator.get_page(page_number)
+    paged_baldai = paginator.get_page(page_number)
     context = {
-        "vehicles": paged_vehicles,
+        "baldai": paged_baldai,
     }
-    return render(request, template_name="vehicles.html", context=context)
+    return render(request, template_name="baldai.html", context=context)
 
 
-def vehicle(request, vehicle_id):
-    vehicle = Vehicle.objects.get(pk=vehicle_id)
+def baldas(request, baldas_id):
+    baldas = Baldas.objects.get(pk=baldas_id)
     context = {
-        "vehicle": vehicle,
+        "baldas": baldas,
     }
-    return render(request, template_name="vehicle.html", context=context)
+    return render(request, template_name="baldas.html", context=context)
 
 
 def search(request):
     query = request.GET.get('query')
-    vehicles = Vehicle.objects.filter(Q(client_name__icontains=query) |
-                                      Q(vehicle_model__make__icontains=query) |
-                                      Q(vehicle_model__model__icontains=query) |
-                                      Q(license_plate__icontains=query) |
-                                      Q(vin_code__icontains=query))
+    baldai = Baldas.objects.filter(Q(client_name__icontains=query) |
+                                      Q(delete_me__make__icontains=query) |
+                                      Q(delete_me__model__icontains=query) |
+                                      Q(serijos_nr__icontains=query)) #|
+                                      #Q(vin_code__icontains=query))
     context = {
         "query": query,
-        "vehicles": vehicles,
+        "baldai": baldai,
     }
     return render(request, template_name='search.html', context=context)
 
@@ -166,7 +166,7 @@ class OrderDetailView(FormMixin, generic.DetailView):
 class OrderCreateView(LoginRequiredMixin, generic.CreateView):
     model = Order
     template_name = "order_form.html"
-    # fields = ['vehicle', 'deadline', 'status']
+    # fields = ['baldas', 'deadline', 'status']
     form_class = OrderCreateUpdateForm
     success_url = "/baldai/orders/"
 
@@ -178,7 +178,7 @@ class OrderCreateView(LoginRequiredMixin, generic.CreateView):
 class OrderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Order
     template_name = "order_form.html"
-    # fields = ['vehicle', 'deadline', 'status']
+    # fields = ['baldas', 'deadline', 'status']
     form_class = OrderCreateUpdateForm
 
     # success_url = "/autoservice/orders/"

@@ -1,11 +1,13 @@
 from django.contrib import admin
-from .models import Service, VehicleModel, Vehicle, Order, OrderLine, OrderComment, Profile
-
+from .models import *
+from django.utils.html import format_html
 
 class OrderLineInLine(admin.TabularInline):
     model = OrderLine
     extra = 0
-    fields = ['qty', 'service']
+    fields = ['service', 'product', 'product_thickness', 'qty', 'product_length', 'product_width', 'left_edge_info',
+              'right_edge_info', 'top_edge_info', 'bottom_edge_info', "mill_drawing_info", "sketch_custom",
+              "sketch_drill_info"]
 
 
 class OrderCommentInLine(admin.TabularInline):
@@ -13,25 +15,124 @@ class OrderCommentInLine(admin.TabularInline):
     extra = 0
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['date', 'vehicle', 'client', 'deadline', 'status']
+    list_display = ['id','order_no','date', 'client', 'deadline', 'status']
     list_editable = ["client", 'deadline', 'status']
     inlines = [OrderLineInLine, OrderCommentInLine]
+    list_filter = ('status',)
 
 
-class VehicleAdmin(admin.ModelAdmin):
-    list_display = ['client_name', 'vehicle_model', 'license_plate', 'vin_code']
-    list_filter = ['client_name', 'vehicle_model']
-    search_fields = ['license_plate', 'vin_code']
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['decor', 'texture', 'p_name', 'nsc_color', ]
+
+
+class BaldasAdmin(admin.ModelAdmin):
+    list_display = ['serijos_nr','name','client_name','description','photo' ]
+    list_filter = ['client_name', ]
+    search_fields = ['serijos_nr', ]
 
 
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ['name', 'price']
 
+class OrderLineAdmin(admin.ModelAdmin):
+    list_display = ['order',
+                    'product',
+                    'product_thickness',
+                    'qty',
+                    'product_length',
+                    'product_width',
+                    'display_total_length',
+                    'display_total_width',
+                    'left_edge_info',
+                    'right_edge_info',
+                    'top_edge_info',
+                    'bottom_edge_info',
+                    'mill_sketch_image_url',
+                    'sketch_image_url',
+                    'drill_image_url',
+                    ]
+    fieldsets = [
+        (
+            'General',
+            {
+                "fields": ["order", "product", "product_thickness", "qty", "product_length", "product_width"],
+            },
+        ),
+        (
+            "Apskaičiuoti Matmenys",
+            {
+                "classes": ["collapse"],
+                "fields": ["display_total_length", "display_total_width"],
+            },
+        ),
+        (
+            "Apdirbimas (Brėžiniai)",
+            {
+                "classes": ["collapse"],
+                "fields": ["mill_drawing_info", "sketch_custom", "sketch_drill_info"],
+            },
+        ),
+        (
+            "Kraštinės",
+            {
+                "classes": ["collapse"],
+                "fields": ["left_edge_info", "right_edge_info", "top_edge_info", "bottom_edge_info"],
+            },
+        ),
+    ]
+    list_filter = ('order', 'product')
+    search_fields = ('product__decor', 'order__order_no')
 
+    readonly_fields = ('display_total_length', 'display_total_width')
+
+    def mill_sketch_image_url(self, obj):
+        if obj.mill_drawing_info and obj.mill_drawing_info.sketch:
+            url = obj.mill_drawing_info.sketch.url
+            custom_text = obj.mill_drawing_info.mill_drawing  # Fetching the custom text from the MillDrawing model
+            return format_html('<a href="{}" target="_blank">{}</a>  {}',
+                               url,
+                               custom_text,
+                               "")
+        else:
+            return "-"
+
+    def sketch_image_url(self, obj):
+        if obj.sketch_custom and obj.sketch_custom.sketch:
+            url = obj.sketch_custom.sketch.url
+            custom_text = obj.sketch_custom.sketch_custom  # Fetching the custom text from the MillDrawing model
+            return format_html('<a href="{}" target="_blank">{}</a>  {}',
+                               url,
+                               custom_text,
+                               "")
+        else:
+            return "-"
+
+    def drill_image_url(self, obj):
+        if obj.sketch_drill_info and obj.sketch_drill_info.sketch:
+            url = obj.sketch_drill_info.sketch.url
+            custom_text = obj.sketch_drill_info.drill  # Fetching the custom text from the MillDrawing model
+            return format_html('<a href="{}" target="_blank">{}</a>  {}',
+                               url,
+                               custom_text,
+                               "")
+        else:
+            return "-"
+
+    drill_image_url.short_description = "GRĘŽIMAS"
 
 admin.site.register(Service, ServiceAdmin)
-admin.site.register(Vehicle, VehicleAdmin)
-admin.site.register(VehicleModel)
+admin.site.register(Baldas, BaldasAdmin)
 admin.site.register(Order, OrderAdmin)
-admin.site.register(OrderLine)
+admin.site.register(OrderLine, OrderLineAdmin)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(ProductThickness)
+admin.site.register(EdgeThickness)
+admin.site.register(BottomEdgeInfo)
+admin.site.register(LeftEdgeInfo)
+admin.site.register(RightEdgeInfo)
+admin.site.register(TopEdgeInfo)
+admin.site.register(MillDrawing)
+admin.site.register(SketchCustom)
+admin.site.register(SideDrill)
+admin.site.register(DrillSketch)
 admin.site.register(Profile)

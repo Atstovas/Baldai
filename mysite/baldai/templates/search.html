@@ -4,9 +4,9 @@
 
 {% block "content" %}
 <h1>Paieškos pagal užklausą "{{ query }}" rezultatai:</h1>
-{% if vehicles %}
-{% for vehicle in vehicles %}
-<p><a href="{% url 'vehicle' vehicle.pk %}">{{ vehicle }}</a></p>
+{% if baldai %}
+{% for baldas in baldai %}
+<p><a href="{% url 'baldas' baldas.pk %}">{{ baldas }}</a></p>
 <hr>
 {% endfor %}
 {% else %}

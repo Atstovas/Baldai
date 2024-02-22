@@ -6,17 +6,16 @@
 {% load static %}
 <h1>Autoserviso automobiliai:</h1>
 <div class="row">
-    {% for vehicle in vehicles %}
+    {% for baldas in baldai %}
     <div class="col-md-4 d-flex align-items-stretch">
         <div class="card mb-4 shadow-sm">
-            {% if vehicle.photo %}
-            <img src="{{ vehicle.photo.url }}" class="card-img-top" alt="...">
+            {% if baldas.photo %}
+            <img src="{{ baldas.photo.url }}" class="card-img-top" alt="...">
             {% else %}
             <img src="{% static 'img/auto-no-image.jpg' %}" class="card-img-top">
             {% endif %}
             <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-muted">{{ vehicle.vehicle_model }}</h6>
-                <p class="card-text"><a href="{{ vehicle.id }}">{{ vehicle.license_plate }}</a></p>
+                <p class="card-text"><a href="{{ baldas.id }}">{{ baldas.serijos_nr }}</a></p>
             </div>
         </div>
     </div>
@@ -24,10 +23,10 @@
 </div>
 <div class="container puslapiai">
     <nav aria-label="...">
-        {% if vehicles.has_other_pages %}
+        {% if baldai.has_other_pages %}
         <ul class="pagination pagination-sm justify-content-center">
-            {% for i in vehicles.paginator.page_range %}
-            {% if vehicles.number == i %}
+            {% for i in baldai.paginator.page_range %}
+            {% if baldai.number == i %}
             <li class="page-item active">
                 <a class="page-link">{{ i }}</a>
             </li>
