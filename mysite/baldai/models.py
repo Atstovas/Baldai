@@ -280,7 +280,7 @@ class OrderLine(models.Model):
                                           blank=True,
                                           default=None,
                                           )
-    qty = models.IntegerField(verbose_name="Kiekis")
+    qty1 = models.IntegerField(verbose_name="Kiekis")
 
     product_length = models.IntegerField(verbose_name="Ilgis")
     product_width = models.IntegerField(verbose_name="Plotis")
@@ -323,10 +323,10 @@ class OrderLine(models.Model):
             return "No sketch image available"
 
     def line_sum(self):
-        return self.service.price * self.qty
+        return self.service.price * self.qty1
 
     def __str__(self):
-        return f"{self.service} - {self.qty} - {self.line_sum()}"
+        return f"{self.service} - {self.qty1} - {self.line_sum()}"
 
     class Meta:
         verbose_name = 'Užsakymo eilutė'

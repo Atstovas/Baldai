@@ -37,7 +37,7 @@ def index(request):
 
 def multiply_products_with_qty():
     num_products = Product.objects.all().count()
-    total_qty = OrderLine.objects.filter(product__isnull=False).aggregate(Sum('qty'))['qty__sum']
+    total_qty = OrderLine.objects.filter(product__isnull=False).aggregate(Sum('qty1'))['qty1__sum']
     result = num_products * total_qty if total_qty else 0
     return result
 
@@ -216,7 +216,7 @@ class OrderDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVie
 class OrderLineCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = OrderLine
     template_name = "orderline_form.html"
-    fields = ['service', 'qty']
+    fields = ['service', 'qty1']
     # success_url = "/autoservice/orders/"
 
     def get_success_url(self):
@@ -234,7 +234,7 @@ class OrderLineCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Creat
 class OrderLineUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = OrderLine
     template_name = "orderline_form.html"
-    fields = ['service', 'qty']
+    fields = ['service', 'qty1']
 
     def get_success_url(self):
         return reverse("order", kwargs={"pk": self.kwargs['order_pk']})

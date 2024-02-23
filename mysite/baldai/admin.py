@@ -5,7 +5,7 @@ from django.utils.html import format_html
 class OrderLineInLine(admin.TabularInline):
     model = OrderLine
     extra = 0
-    fields = ['service', 'product', 'product_thickness', 'qty', 'product_length', 'product_width', 'left_edge_info',
+    fields = ['service', 'product', 'product_thickness', 'qty1', 'product_length', 'product_width', 'left_edge_info',
               'right_edge_info', 'top_edge_info', 'bottom_edge_info', "mill_drawing_info", "sketch_custom",
               "sketch_drill_info"]
 
@@ -38,7 +38,7 @@ class OrderLineAdmin(admin.ModelAdmin):
     list_display = ['order',
                     'product',
                     'product_thickness',
-                    'qty',
+                    'qty1',
                     'product_length',
                     'product_width',
                     'display_total_length',
@@ -55,7 +55,7 @@ class OrderLineAdmin(admin.ModelAdmin):
         (
             'General',
             {
-                "fields": ["order", "product", "product_thickness", "qty", "product_length", "product_width"],
+                "fields": ["order", "product", "product_thickness", "qty1", "product_length", "product_width"],
             },
         ),
         (
