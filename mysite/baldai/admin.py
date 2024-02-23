@@ -22,11 +22,11 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['decor', 'texture', 'p_name', 'nsc_color', ]
+    list_display = ['decor', 'p_name', 'price_product','decor_pic' ]
 
 
 class BaldasAdmin(admin.ModelAdmin):
-    list_display = ['serijos_nr','name','client_name','description','photo' ]
+    list_display = ['serijos_nr','name','client_name','description','photo',]
     list_filter = ['client_name', ]
     search_fields = ['serijos_nr', ]
 
@@ -135,6 +135,7 @@ admin.site.register(OrderLine, OrderLineAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductThickness)
 admin.site.register(EdgeThickness)
+admin.site.register(EdgeColor)
 admin.site.register(BottomEdgeInfo)
 admin.site.register(LeftEdgeInfo)
 admin.site.register(RightEdgeInfo)

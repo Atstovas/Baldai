@@ -24,7 +24,6 @@
         <th>Paslauga</th>
         <th>Kaina</th>
         <th>Kiekis</th>
-        <th>Suma</th>
         {% if order.client == user %}
         <th></th>
         {% endif %}
@@ -35,8 +34,7 @@
     <tr>
         <td>{{ line.service.name }}</td>
         <td>{{ line.service.price }}</td>
-        <td>{{ line.qty1 }}</td>
-        <td>{{ line.line_sum }}</td>
+        <td>{{ line.qty2 }}</td>
         {% if order.client == user %}
         <td class="d-flex">
             <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'orderline_update' order.pk line.pk %}">Redaguoti</a>
@@ -48,7 +46,60 @@
     </tr>
     {% endfor %}
     <tr>
-        <td colspan="3"><strong>BENDRA SUMA:</strong></td>
+        <td colspan="18"><strong>BENDRA SUMA:</strong></td>
+        <td><strong>{{ order.total }}</strong></td>
+    </tr>
+    </tbody>
+    <thead>
+    <tr>
+        <th>Plokštė</th>
+        <th>Storis</th>
+        <th>Kiekis</th>
+        <th>Ilgis</th>
+        <th>Plotis</th>
+        <th>Cut length</th>
+        <th>Cut width</th>
+        <th>← kairė briauna</th>
+        <th>→ dešinė briauna</th>
+        <th>↑ viršutinė briauna</th>
+        <th>↓ apatinė briauna</th>
+        <th>Frezavimas</th>
+        <th>Eskizas</th>
+        <th>Gręžimas</th>
+        {% if order.client == user %}
+        <th></th>
+        {% endif %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for line in order.lines.all %}
+    <tr>
+        <td>{{ line.product }}</td>
+        <td>{{ line.product_thickness }}</td>
+        <td>{{ line.qty1 }}</td>
+        <td>{{ line.product_length }}</td>
+        <td>{{ line.product_width }}</td>
+        <td>{{ line.total_length }}</td>
+        <td>{{ line.total_width }}</td>
+        <td>{{ line.left_edge_info }}</td>
+        <td>{{ line.right_edge_info }}</td>
+        <td>{{ line.top_edge_info }}</td>
+        <td>{{ line.bottom_edge_info }}</td>
+        <td>{{ line.mill_drawing_info }}</td>
+        <td>{{ line.sketch_custom }}</td>
+        <td>{{ line.sketch_drill_info }}</td>
+        {% if order.client == user %}
+        <td class="d-flex">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'orderline_update' order.pk line.pk %}">Redaguoti</a>
+            <form method="POST" action="{% url 'orderline_delete' order.pk line.pk %}">
+                {% csrf_token %}<input class="btn btn-danger btn-sm mt-1 mb-1" type="submit" value="Ištrinti">
+            </form>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="18"><strong>BENDRA SUMA:</strong></td>
         <td><strong>{{ order.total }}</strong></td>
     </tr>
     </tbody>

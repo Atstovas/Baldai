@@ -82,11 +82,25 @@ class EdgeThickness(models.Model):
         verbose_name_plural = 'Braiunų storiai'
 
 
+class EdgeColor(models.Model):
+    e_color = models.CharField(verbose_name="Briaunos kodas", max_length=20)
+    e_color_name = models.CharField(verbose_name="Briaunos spalva", max_length=35)
+    e_photo = models.ImageField('Briaunos nuotrauka', upload_to='edge_color', null=True, blank=True)
+    def __str__(self):
+        return f"{self.e_color} {self.e_color_name}"
+
+    class Meta:
+        verbose_name = 'Briaunos splava'
+        verbose_name_plural = 'Braiunų spalvos'
+
+
 class TopEdgeInfo(models.Model):
-    e_color = models.CharField(verbose_name="Briaunos spalva", max_length=20)
+    e_color = models.ForeignKey(to="EdgeColor", verbose_name="Briauno spalva",
+                                          on_delete=models.SET_NULL, null=True)
     # e_length = models.CharField(verbose_name="Briaunos ilgis", max_length=20)
     e_thickness_model = models.ForeignKey(to="EdgeThickness", verbose_name="Plokštės briauna",
                                           on_delete=models.SET_NULL, null=True)
+
 
     def __str__(self):
         return f"{self.e_color} : {self.e_thickness_model}mm"  # {self.e_thickness_model}"{self.e_length}
@@ -97,7 +111,8 @@ class TopEdgeInfo(models.Model):
 
 
 class BottomEdgeInfo(models.Model):
-    e_color = models.CharField(verbose_name="Briaunos spalva", max_length=20)
+    e_color = models.ForeignKey(to="EdgeColor", verbose_name="Briauno spalva",
+                                          on_delete=models.SET_NULL, null=True)
     # e_length = models.CharField(verbose_name="Briaunos ilgis", max_length=20)
     e_thickness_model = models.ForeignKey(to="EdgeThickness", verbose_name="Plokštės briauna",
                                           on_delete=models.SET_NULL, null=True)
@@ -111,7 +126,8 @@ class BottomEdgeInfo(models.Model):
 
 
 class LeftEdgeInfo(models.Model):
-    e_color = models.CharField(verbose_name="Briaunos spalva", max_length=20)
+    e_color = models.ForeignKey(to="EdgeColor", verbose_name="Briauno spalva",
+                                          on_delete=models.SET_NULL, null=True)
     # e_length = models.CharField(verbose_name="Briaunos ilgis", max_length=20)
     e_thickness_model = models.ForeignKey(to="EdgeThickness", verbose_name="Plokštės briauna",
                                           on_delete=models.SET_NULL, null=True)
@@ -125,7 +141,8 @@ class LeftEdgeInfo(models.Model):
 
 
 class RightEdgeInfo(models.Model):
-    e_color = models.CharField(verbose_name="Briaunos spalva", max_length=20)
+    e_color = models.ForeignKey(to="EdgeColor", verbose_name="Briauno spalva",
+                                          on_delete=models.SET_NULL, null=True)
     # e_length = models.CharField(verbose_name="Briaunos ilgis", max_length=20)
     e_thickness_model = models.ForeignKey(to="EdgeThickness", verbose_name="Plokštės briauna",
                                           on_delete=models.SET_NULL, null=True)
@@ -149,16 +166,20 @@ class ProductThickness(models.Model):
         verbose_name_plural = 'Plokščių storiai'
 
 
+
 class Product(models.Model):
     decor = models.CharField(verbose_name="Plokštės dekoras", max_length=10)
-    texture = models.CharField(verbose_name="Plokštės atsparumo klasė", max_length=10)
     p_name = models.CharField(verbose_name="Plokštės pavadinimas", max_length=50)
-    nsc_color = models.CharField(verbose_name="Plokštės spalvos kodas", max_length=50)
-    description = models.TextField('Aprašymas', max_length=2000, default='')
     decor_pic = models.ImageField('Dekoro nuotrauka', upload_to='decors', null=True, blank=True)
+    price_product = models.FloatField(verbose_name="Product price", default=0.0)
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)  # First save to assign an id
+        if not self.price_product:
+            self.price_product = float(self.id)
+            super().save(*args, **kwargs)  # Save again to update the price_product field
     def __str__(self):
-        return f"{self.decor} {self.texture} {self.p_name} {self.nsc_color}"
+        return f"{self.decor} {self.p_name}"
 
     class Meta:
         verbose_name = 'Plokštė'
@@ -221,6 +242,20 @@ class Order(models.Model):
         for line in self.lines.all():
             total += line.total_width()
         return total
+
+    # def total_services(self):
+    #     total = 0
+    #     for line in self.lines.all():
+    #         if line.service:
+    #             total += line.service.price * line.qty2
+    #     return total
+
+    # def total_products(self):
+    #     total = 0
+    #     for line in self.lines.all():
+    #         if line.product:
+    #             total += line.product.price * line.qty1  # assuming product has a price field
+    #     return total
 
     def __str__(self):
         formatted_date = self.date.strftime("%Y:%m:%d %H:%M")
