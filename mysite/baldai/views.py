@@ -12,6 +12,7 @@ from django.contrib.auth import password_validation
 from .forms import OrderCommentForm, UserUpdateForm, ProfileUpdateForm, OrderCreateUpdateForm
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
 
 
 # Create your views here.
@@ -19,18 +20,26 @@ def index(request):
     num_services = Service.objects.all().count()
     num_orders_done = Order.objects.filter(status__exact='i').count()
     num_baldai = Baldas.objects.all().count()
-
     num_visits = request.session.get('num_visits', 1)
     request.session['num_visits'] = num_visits + 1
+
+    # Call the function and store the result
+    product_qty_result = multiply_products_with_qty()
 
     result = {
         "num_services": num_services,
         "num_orders_done": num_orders_done,
         "num_baldai": num_baldai,
         "num_visits": num_visits,
+        "product_qty_result": product_qty_result,  # Add the result to the dictionary
     }
     return render(request, template_name="index.html", context=result)
 
+def multiply_products_with_qty():
+    num_products = Product.objects.all().count()
+    total_qty = OrderLine.objects.filter(product__isnull=False).aggregate(Sum('qty'))['qty__sum']
+    result = num_products * total_qty if total_qty else 0
+    return result
 
 def baldai(request):
     baldai = Baldas.objects.all()
