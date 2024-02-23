@@ -234,10 +234,10 @@ class Order(models.Model):
 
 class OrderLine(models.Model):
     order = models.ForeignKey(to="Order", verbose_name="Užsakymas", on_delete=models.CASCADE, related_name="lines")
-    service = models.ForeignKey(to="Service", verbose_name="Paslauga", on_delete=models.SET_NULL, null=True)
-    product = models.ForeignKey(to="Product", verbose_name="Plokštė", on_delete=models.SET_NULL, null=True, related_name="gaminys")
+    service = models.ForeignKey(to="Service", verbose_name="Paslauga", on_delete=models.SET_NULL, null=True, blank=True, default=None)
+    product = models.ForeignKey(to="Product", verbose_name="Plokštė", on_delete=models.SET_NULL, null=True, blank=True, default=None, related_name="gaminys")
     product_thickness = models.ForeignKey(to="ProductThickness", verbose_name="Storis", on_delete=models.SET_NULL,
-                                          null=True)
+                                          null=True,blank=True, default=None)
     right_edge_info = models.ForeignKey(to="RightEdgeInfo", verbose_name="→ dešinė briauna",
                                         on_delete=models.SET_NULL,
                                         null=True,
@@ -280,24 +280,24 @@ class OrderLine(models.Model):
                                           blank=True,
                                           default=None,
                                           )
-    qty1 = models.IntegerField(verbose_name="Kiekis")
-
-    product_length = models.IntegerField(verbose_name="Ilgis")
-    product_width = models.IntegerField(verbose_name="Plotis")
+    qty1 = models.IntegerField(verbose_name="Kiekis1",default=None, blank=True, null=True)
+    qty2 = models.IntegerField(verbose_name="Kiekis2",default=None, blank=True, null=True)
+    product_length = models.IntegerField(verbose_name="Ilgis",default=None, blank=True, null=True)
+    product_width = models.IntegerField(verbose_name="Plotis",default=None, blank=True, null=True)
 
     def total_length(self):
         left_thickness = self.left_edge_info.e_thickness_model.e_thickness if self.left_edge_info else 0
         right_thickness = self.right_edge_info.e_thickness_model.e_thickness if self.right_edge_info else 0
 
         sum = self.product_length - left_thickness - right_thickness
-        return sum
+        return sum if self.product else 0
 
     def total_width(self):
         top_thickness = self.top_edge_info.e_thickness_model.e_thickness if self.top_edge_info else 0
         bottom_thickness = self.bottom_edge_info.e_thickness_model.e_thickness if self.bottom_edge_info else 0
 
         sum = self.product_width - top_thickness - bottom_thickness
-        return sum
+        return sum if self.product else 0
 
 
     def display_total_length(self):
@@ -323,10 +323,19 @@ class OrderLine(models.Model):
             return "No sketch image available"
 
     def line_sum(self):
-        return self.service.price * self.qty1
+        return self.service.price * self.qty2 if self.service else 0
+
+    def save(self, *args, **kwargs):
+        if self.product_length is None:
+            self.product_length = 0  # or any other default value
+        if self.product_width is None:
+            self.product_width = 0  # or any other default value
+        if self.qty1 is None:
+            self.qty1 = 0  # or any other default value
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.service} - {self.qty1} - {self.line_sum()}"
+        return f"{self.service} - {self.qty2} - {self.line_sum()}" if self.service else f"{self.product} - {self.qty1} - {self.line_sum()}"
 
     class Meta:
         verbose_name = 'Užsakymo eilutė'
