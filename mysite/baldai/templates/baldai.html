@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block "title" %}Baldų katalogas{% endblock %}
+{% block "title" %}Katalogas{% endblock %}
 
 {% block "content" %}
 {% load static %}
-<h1>Autentiški baldų projektai:</h1>
+<h1>Baldų katalogas:</h1>
 <div class="row">
     {% for baldas in baldai %}
     <div class="col-md-4 d-flex align-items-stretch">
@@ -12,7 +12,7 @@
             {% if baldas.photo %}
             <img src="{{ baldas.photo.url }}" class="card-img-top" alt="...">
             {% else %}
-            <img src="{% static 'img/auto-no-image.jpg' %}" class="card-img-top">
+            <img src="{% static 'img/furniture_default.png' %}" class="card-img-top">
             {% endif %}
             <div class="card-body">
                 <p class="card-text"><a href="{{ baldas.id }}">{{ baldas.serijos_nr }}</a></p>

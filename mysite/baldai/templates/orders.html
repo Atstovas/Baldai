@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block "title" %}Taisymai{% endblock %}
+{% block "title" %}Projektai{% endblock %}
 
 {% block "content" %}
-<h1>Autoserviso taisymai:</h1>
+<h1>Baldų projektų užsakymai:</h1>
 {% for order in orders %}
 <a href="{{ order.pk }}">{{ order }}</a>
 <hr>

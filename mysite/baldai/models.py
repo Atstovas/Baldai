@@ -168,7 +168,7 @@ class Product(models.Model):
 class Baldas(models.Model):
     serijos_nr = models.CharField(default=uuid.uuid4().hex[:10].upper(), verbose_name="Baldo nr.(kataloge)", max_length=11)
     name = models.CharField(verbose_name="Baldo pavadinimas", max_length=20)
-    client_name = models.ForeignKey(to=User, verbose_name="Klientas", on_delete=models.SET_NULL, null=True)
+    client_name = models.ForeignKey(to=User, verbose_name="Projektuotojas", on_delete=models.SET_NULL, null=True)
     photo = models.ImageField('Nuotrauka', upload_to='baldai', null=True, blank=True)
     description = HTMLField(verbose_name="Aprašymas", null=True, blank=True)
 
@@ -176,8 +176,8 @@ class Baldas(models.Model):
         return f"{self.client_name} ({self.serijos_nr})"
 
     class Meta:
-        verbose_name = 'Baldo projektas'
-        verbose_name_plural = 'Baldų projektai'
+        verbose_name = 'Baldas'
+        verbose_name_plural = 'Baldai'
 
 
 

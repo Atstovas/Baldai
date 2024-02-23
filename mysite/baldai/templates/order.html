@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% block "title" %}Taisymas{% endblock %}
+{% block "title" %}{{ order.order_no }}{% endblock %}
 
 {% block "content" %}
-<h1>Taisymas {{ order.date }}</h1>
-<p><strong>Automobilis: </strong>{{ order.baldas }}</p>
+<h1>Užsakymas {{ order.date|date:"Y-m-d | H:i:s" }}</h1>
+<p><strong>Baldo projektas: </strong>{{ order.baldas }}</p>
 <p><strong>Būsena: </strong>{{ order.get_status_display }}</p>
-<p><strong>Terminas: </strong>{{ order.deadline }}</p>
+<p><strong>Terminas: </strong>{{ order.deadline|date:"Y-m-d" }} (liko {{ order.deadline|timeuntil }})</p>
 <p><strong>Klientas: </strong><img class="rounded-circle account-img" style="width: 30px"
                                    src="{{ order.client.profile.photo.url }}"> {{ order.client }}<br/></p>
 {% if order.client == user %}
