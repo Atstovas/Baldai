@@ -24,7 +24,7 @@ def index(request):
     request.session['num_visits'] = num_visits + 1
 
     # Call the function and store the result
-    product_qty_result = multiply_products_with_qty()
+    product_qty_result = OrderLine.objects.aggregate(total_qty=Sum('qty1'))['total_qty']
 
     result = {
         "num_services": num_services,
