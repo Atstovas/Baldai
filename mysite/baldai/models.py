@@ -370,7 +370,12 @@ class OrderLine(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.service} - {self.qty2} - {self.line_sum()}" if self.service else f"{self.product} - {self.qty1} - {self.line_sum()}"
+        if self.service:
+            return f"{self.service} - {self.qty2} - {self.line_sum()}"
+        elif self.product:
+            return f"{self.product} - {self.qty1} - {self.line_sum()}"
+        else:
+            return "Nėra užsakymo eilučių"
 
     class Meta:
         verbose_name = 'Užsakymo eilutė'
