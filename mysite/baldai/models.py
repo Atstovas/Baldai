@@ -22,6 +22,7 @@ class Service(models.Model):
         verbose_name = 'Paslauga'
         verbose_name_plural = 'Paslaugos'
 
+
 class SideDrill(models.Model):
     side = models.CharField(verbose_name="Gręžimo kraštinė", max_length=10)
 
@@ -86,6 +87,7 @@ class EdgeColor(models.Model):
     e_color = models.CharField(verbose_name="Briaunos kodas", max_length=20)
     e_color_name = models.CharField(verbose_name="Briaunos spalva", max_length=35)
     e_photo = models.ImageField('Briaunos nuotrauka', upload_to='edge_color', null=True, blank=True)
+
     def __str__(self):
         return f"{self.e_color} {self.e_color_name}"
 
@@ -96,11 +98,10 @@ class EdgeColor(models.Model):
 
 class TopEdgeInfo(models.Model):
     e_color = models.ForeignKey(to="EdgeColor", verbose_name="Briauno spalva",
-                                          on_delete=models.SET_NULL, null=True)
+                                on_delete=models.SET_NULL, null=True)
     # e_length = models.CharField(verbose_name="Briaunos ilgis", max_length=20)
     e_thickness_model = models.ForeignKey(to="EdgeThickness", verbose_name="Plokštės briauna",
                                           on_delete=models.SET_NULL, null=True)
-
 
     def __str__(self):
         return f"{self.e_color} : {self.e_thickness_model}mm"  # {self.e_thickness_model}"{self.e_length}
@@ -112,7 +113,7 @@ class TopEdgeInfo(models.Model):
 
 class BottomEdgeInfo(models.Model):
     e_color = models.ForeignKey(to="EdgeColor", verbose_name="Briauno spalva",
-                                          on_delete=models.SET_NULL, null=True)
+                                on_delete=models.SET_NULL, null=True)
     # e_length = models.CharField(verbose_name="Briaunos ilgis", max_length=20)
     e_thickness_model = models.ForeignKey(to="EdgeThickness", verbose_name="Plokštės briauna",
                                           on_delete=models.SET_NULL, null=True)
@@ -127,7 +128,7 @@ class BottomEdgeInfo(models.Model):
 
 class LeftEdgeInfo(models.Model):
     e_color = models.ForeignKey(to="EdgeColor", verbose_name="Briauno spalva",
-                                          on_delete=models.SET_NULL, null=True)
+                                on_delete=models.SET_NULL, null=True)
     # e_length = models.CharField(verbose_name="Briaunos ilgis", max_length=20)
     e_thickness_model = models.ForeignKey(to="EdgeThickness", verbose_name="Plokštės briauna",
                                           on_delete=models.SET_NULL, null=True)
@@ -142,7 +143,7 @@ class LeftEdgeInfo(models.Model):
 
 class RightEdgeInfo(models.Model):
     e_color = models.ForeignKey(to="EdgeColor", verbose_name="Briauno spalva",
-                                          on_delete=models.SET_NULL, null=True)
+                                on_delete=models.SET_NULL, null=True)
     # e_length = models.CharField(verbose_name="Briaunos ilgis", max_length=20)
     e_thickness_model = models.ForeignKey(to="EdgeThickness", verbose_name="Plokštės briauna",
                                           on_delete=models.SET_NULL, null=True)
@@ -166,18 +167,12 @@ class ProductThickness(models.Model):
         verbose_name_plural = 'Plokščių storiai'
 
 
-
 class Product(models.Model):
     decor = models.CharField(verbose_name="Plokštės dekoras", max_length=10)
     p_name = models.CharField(verbose_name="Plokštės pavadinimas", max_length=50)
     decor_pic = models.ImageField('Dekoro nuotrauka', upload_to='decors', null=True, blank=True)
     price_product = models.FloatField(verbose_name="Product price", default=0.0)
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)  # First save to assign an id
-        if not self.price_product:
-            self.price_product = float(self.id)
-            super().save(*args, **kwargs)  # Save again to update the price_product field
     def __str__(self):
         return f"{self.decor} {self.p_name}"
 
@@ -187,7 +182,8 @@ class Product(models.Model):
 
 
 class Baldas(models.Model):
-    serijos_nr = models.CharField(default=uuid.uuid4().hex[:10].upper(), verbose_name="Baldo nr.(kataloge)", max_length=11)
+    serijos_nr = models.CharField(default=uuid.uuid4().hex[:10].upper(), verbose_name="Baldo nr.(kataloge)",
+                                  max_length=11)
     name = models.CharField(verbose_name="Baldo pavadinimas", max_length=20)
     client_name = models.ForeignKey(to=User, verbose_name="Projektuotojas", on_delete=models.SET_NULL, null=True)
     photo = models.ImageField('Nuotrauka', upload_to='baldai', null=True, blank=True)
@@ -199,7 +195,6 @@ class Baldas(models.Model):
     class Meta:
         verbose_name = 'Baldas'
         verbose_name_plural = 'Baldai'
-
 
 
 class Order(models.Model):
@@ -219,17 +214,11 @@ class Order(models.Model):
         ('a', "Atšaukta"),
     )
 
-    status = models.CharField(verbose_name="Būsena", max_length=1, choices=STATUS, default="p",help_text='Statusas')
+    status = models.CharField(verbose_name="Būsena", max_length=1, choices=STATUS, default="p", help_text='Statusas')
 
     def is_overdue(self):
         return self.deadline and self.deadline.replace(tzinfo=utc) < datetime.today().replace(
             tzinfo=utc) and self.status != 'i'
-
-    def total(self):
-        total = 0
-        for line in self.lines.all():
-            total += line.line_sum()
-        return total
 
     def total_length_cut(self):
         total = 0
@@ -237,12 +226,18 @@ class Order(models.Model):
             total += line.total_length()
         return total
 
-    def total_width_cut(self):
+    def total(self):
         total = 0
         for line in self.lines.all():
-            total += line.total_width()
+            total += line.line_sum()
         return total
 
+    # def total_width_cut(self):
+    #     total = 0
+    #     for line in self.lines.all():
+    #         total += line.total_width()
+    #     return total
+    #
     # def total_services(self):
     #     total = 0
     #     for line in self.lines.all():
@@ -250,12 +245,12 @@ class Order(models.Model):
     #             total += line.service.price * line.qty2
     #     return total
 
-    # def total_products(self):
-    #     total = 0
-    #     for line in self.lines.all():
-    #         if line.product:
-    #             total += line.product.price * line.qty1  # assuming product has a price field
-    #     return total
+    def total_products(self):
+        total = 0
+        for line in self.lines.all():
+            if line.product:
+                total += line.product.price_product * line.qty1
+        return total
 
     def __str__(self):
         formatted_date = self.date.strftime("%Y:%m:%d %H:%M")
@@ -269,10 +264,12 @@ class Order(models.Model):
 
 class OrderLine(models.Model):
     order = models.ForeignKey(to="Order", verbose_name="Užsakymas", on_delete=models.CASCADE, related_name="lines")
-    service = models.ForeignKey(to="Service", verbose_name="Paslauga", on_delete=models.SET_NULL, null=True, blank=True, default=None)
-    product = models.ForeignKey(to="Product", verbose_name="Plokštė", on_delete=models.SET_NULL, null=True, blank=True, default=None, related_name="gaminys")
+    service = models.ForeignKey(to="Service", verbose_name="Paslauga", on_delete=models.SET_NULL, null=True, blank=True,
+                                default=None)
+    product = models.ForeignKey(to="Product", verbose_name="Plokštė", on_delete=models.SET_NULL, null=True, blank=True,
+                                default=None, related_name="gaminys")
     product_thickness = models.ForeignKey(to="ProductThickness", verbose_name="Storis", on_delete=models.SET_NULL,
-                                          null=True,blank=True, default=None)
+                                          null=True, blank=True, default=None)
     right_edge_info = models.ForeignKey(to="RightEdgeInfo", verbose_name="→ dešinė briauna",
                                         on_delete=models.SET_NULL,
                                         null=True,
@@ -315,10 +312,10 @@ class OrderLine(models.Model):
                                           blank=True,
                                           default=None,
                                           )
-    qty1 = models.IntegerField(verbose_name="Kiekis1",default=None, blank=True, null=True)
-    qty2 = models.IntegerField(verbose_name="Kiekis2",default=None, blank=True, null=True)
-    product_length = models.IntegerField(verbose_name="Ilgis",default=None, blank=True, null=True)
-    product_width = models.IntegerField(verbose_name="Plotis",default=None, blank=True, null=True)
+    qty1 = models.IntegerField(verbose_name="Kiekis1", default=None, blank=True, null=True)
+    qty2 = models.IntegerField(verbose_name="Kiekis2", default=None, blank=True, null=True)
+    product_length = models.IntegerField(verbose_name="Ilgis", default=None, blank=True, null=True)
+    product_width = models.IntegerField(verbose_name="Plotis", default=None, blank=True, null=True)
 
     def total_length(self):
         left_thickness = self.left_edge_info.e_thickness_model.e_thickness if self.left_edge_info else 0
@@ -333,7 +330,6 @@ class OrderLine(models.Model):
 
         sum = self.product_width - top_thickness - bottom_thickness
         return sum if self.product else 0
-
 
     def display_total_length(self):
         if self.product_length is not None and self.left_edge_info is not None and self.right_edge_info is not None:
@@ -358,15 +354,64 @@ class OrderLine(models.Model):
             return "No sketch image available"
 
     def line_sum(self):
-        return self.service.price * self.qty2 if self.service else 0
+        if self.service:
+            return self.service.price * self.qty2 if self.service else 0
+        elif self.product:
+            return self.product.price_product * self.qty1 if self.product else 0
+        else:
+            return 0
+
+    @property
+    def mill_sketch_image_url(self):
+        if self.mill_drawing_info and self.mill_drawing_info.sketch:
+            url = self.mill_drawing_info.sketch.url
+            custom_text = self.mill_drawing_info.mill_drawing  # Fetching the custom text from the MillDrawing model
+            return format_html('<a href="{}" target="_blank">{}</a>  {}',
+                               url,
+                               custom_text,
+                               "")
+        else:
+            return "-"
+
+    @property
+    def sketch_image_url(self):
+        if self.sketch_custom and self.sketch_custom.sketch:
+            url = self.sketch_custom.sketch.url
+            custom_text = self.sketch_custom.sketch_custom  # Fetching the custom text from the MillDrawing model
+            return format_html('<a href="{}" target="_blank">{}</a>  {}',
+                               url,
+                               custom_text,
+                               "")
+        else:
+            return "-"
+
+
+    @property
+    def drill_image_url(self):
+        if self.sketch_drill_info and self.sketch_drill_info.sketch:
+            url = self.sketch_drill_info.sketch.url
+            custom_text = self.sketch_drill_info.drill
+            return format_html('<a href="{}" target="_blank">{}</a>', url, custom_text)
+        else:
+            return "-"
+
+
+    @property
+    def product_decor_url_with_decor(self):
+        if self.product and self.product.decor_pic:
+            url = self.product.decor_pic.url
+            name = self.product.decor
+            return format_html('<a href="{}" target="_blank">{}</a>', url, name)
+        else:
+            return self.product if self.product else "-"
 
     def save(self, *args, **kwargs):
         if self.product_length is None:
-            self.product_length = 0  # or any other default value
+            self.product_length = 0
         if self.product_width is None:
-            self.product_width = 0  # or any other default value
+            self.product_width = 0
         if self.qty1 is None:
-            self.qty1 = 0  # or any other default value
+            self.qty1 = 0
         super().save(*args, **kwargs)
 
     def __str__(self):

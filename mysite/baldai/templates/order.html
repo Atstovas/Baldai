@@ -14,13 +14,14 @@
 <p><strong>Būsena: </strong>{{ order.get_status_display }}</p>
 <p><strong>Terminas: </strong>{{ order.deadline|date:"Y-m-d" }} (liko {{ order.deadline|timeuntil }})</p>
 <p><strong>Klientas: </strong><img class="rounded-circle account-img" style="width: 30px"
-src="{{ order.client.profile.photo.url }}"> {{ order.client }}<br/></p>
+                                   src="{{ order.client.profile.photo.url }}"> {{ order.client }}<br/></p>
 <table class="table table-hover">
     <thead>
     <tr>
         <th>Plokštė</th>
         <th>Storis</th>
         <th>Kiekis</th>
+        <th>Kaina</th>
         <th>Ilgis</th>
         <th>Plotis</th>
         <th>Cut length</th>
@@ -40,20 +41,21 @@ src="{{ order.client.profile.photo.url }}"> {{ order.client }}<br/></p>
     <tbody>
     {% for line in order.lines.all %}
     <tr>
-        <td>{{ line.product }}</td>
+        <td>{{ line.product_decor_url_with_decor|default_if_none:"-" }}</td>
         <td>{{ line.product_thickness }}</td>
         <td>{{ line.qty1 }}</td>
+        <td>{{ line.product.price_product }}€</td>
         <td>{{ line.product_length }}</td>
         <td>{{ line.product_width }}</td>
         <td>{{ line.total_length }}</td>
         <td>{{ line.total_width }}</td>
-        <td>{{ line.left_edge_info }}</td>
-        <td>{{ line.right_edge_info }}</td>
-        <td>{{ line.top_edge_info }}</td>
-        <td>{{ line.bottom_edge_info }}</td>
-        <td>{{ line.mill_drawing_info }}</td>
-        <td>{{ line.sketch_custom }}</td>
-        <td>{{ line.sketch_drill_info }}</td>
+        <td>{{ line.left_edge_info.e_thickness_model }}mm</td>
+        <td>{{ line.right_edge_info.e_thickness_model }}mm</td>
+        <td>{{ line.top_edge_info.e_thickness_model }}mm</td>
+        <td>{{ line.bottom_edge_info.e_thickness_model }}mm</td>
+        <td>{{ line.mill_drawing_info_url|default_if_none:"-" }}</td>
+        <td>{{ line.sketch_custom_url|default_if_none:"-" }}</td>
+        <td>{{ line.drill_image_url|default_if_none:"-" }}</td>
         {% if order.client == user %}
         <td class="d-flex">
             <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'orderline_update' order.pk line.pk %}">Redaguoti</a>
@@ -64,7 +66,7 @@ src="{{ order.client.profile.photo.url }}"> {{ order.client }}<br/></p>
         {% endif %}
     </tr>
     {% endfor %}
-<!--Add button add new line if order.client == user -->
+    <!--Add button add new line if order.client == user -->
     {% if order.client == user %}
     <tr>
         <td colspan="18">
@@ -74,7 +76,7 @@ src="{{ order.client.profile.photo.url }}"> {{ order.client }}<br/></p>
     {% endif %}
     <tr>
         <td colspan="18"><strong>BENDRA SUMA:</strong></td>
-        <td><strong>{{ order.total }}</strong></td>
+        <td><strong>{{ order.total|floatformat:2 }}€</strong></td>
     </tr>
     </tbody>
 </table>
