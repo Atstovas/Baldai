@@ -4,52 +4,18 @@
 
 {% block "content" %}
 <h1>Užsakymas {{ order.date|date:"Y-m-d | H:i:s" }}</h1>
-<p><strong>Baldo projektas: </strong>{{ order.baldas }}</p>
-<p><strong>Būsena: </strong>{{ order.get_status_display }}</p>
-<p><strong>Terminas: </strong>{{ order.deadline|date:"Y-m-d" }} (liko {{ order.deadline|timeuntil }})</p>
-<p><strong>Klientas: </strong><img class="rounded-circle account-img" style="width: 30px"
-                                   src="{{ order.client.profile.photo.url }}"> {{ order.client }}<br/></p>
 {% if order.client == user %}
 <div>
     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'order_update' order.pk %}">Redaguoti</a>
     <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'order_delete' order.pk %}">Ištrinti</a>
 </div>
-<div>
-    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'orderline_new' order.pk %}">Pridėti paslaugą</a>
-</div>
 {% endif %}
+<p><strong>Baldo projektas: </strong>{{ order.baldas }}</p>
+<p><strong>Būsena: </strong>{{ order.get_status_display }}</p>
+<p><strong>Terminas: </strong>{{ order.deadline|date:"Y-m-d" }} (liko {{ order.deadline|timeuntil }})</p>
+<p><strong>Klientas: </strong><img class="rounded-circle account-img" style="width: 30px"
+src="{{ order.client.profile.photo.url }}"> {{ order.client }}<br/></p>
 <table class="table table-hover">
-    <thead>
-    <tr>
-        <th>Paslauga</th>
-        <th>Kaina</th>
-        <th>Kiekis</th>
-        {% if order.client == user %}
-        <th></th>
-        {% endif %}
-    </tr>
-    </thead>
-    <tbody>
-    {% for line in order.lines.all %}
-    <tr>
-        <td>{{ line.service.name }}</td>
-        <td>{{ line.service.price }}</td>
-        <td>{{ line.qty2 }}</td>
-        {% if order.client == user %}
-        <td class="d-flex">
-            <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'orderline_update' order.pk line.pk %}">Redaguoti</a>
-            <form method="POST" action="{% url 'orderline_delete' order.pk line.pk %}">
-                {% csrf_token %}<input class="btn btn-danger btn-sm mt-1 mb-1" type="submit" value="Ištrinti">
-            </form>
-        </td>
-        {% endif %}
-    </tr>
-    {% endfor %}
-    <tr>
-        <td colspan="18"><strong>BENDRA SUMA:</strong></td>
-        <td><strong>{{ order.total }}</strong></td>
-    </tr>
-    </tbody>
     <thead>
     <tr>
         <th>Plokštė</th>
@@ -98,12 +64,22 @@
         {% endif %}
     </tr>
     {% endfor %}
+<!--Add button add new line if order.client == user -->
+    {% if order.client == user %}
+    <tr>
+        <td colspan="18">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'orderline_new' order.pk %}">Pridėti</a>
+        </td>
+    </tr>
+    {% endif %}
     <tr>
         <td colspan="18"><strong>BENDRA SUMA:</strong></td>
         <td><strong>{{ order.total }}</strong></td>
     </tr>
     </tbody>
 </table>
+
+
 {% if user.is_authenticated %}
 <div class="fieldWrapper">
     <hr>
