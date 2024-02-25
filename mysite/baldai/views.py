@@ -81,14 +81,20 @@ def product(request, product_id):
 
 def search(request):
     query = request.GET.get('query')
-    baldai = Baldas.objects.filter(Q(client_name__icontains=query) |
-                                   Q(delete_me__make__icontains=query) |
-                                   Q(delete_me__model__icontains=query) |
-                                   Q(serijos_nr__icontains=query))  # |
-    # Q(vin_code__icontains=query))
+    baldai = Baldas.objects.filter(Q(client_name__username__icontains=query) |
+                                   Q(serijos_nr__icontains=query))
+    products = Product.objects.filter(Q(p_name__icontains=query) |
+                                      Q(decor__icontains=query) |
+                                      Q(price_product__icontains=query))
+
+    print(f"Query: {query}")
+    print(f"Baldai: {baldai}")
+    print(f"Products: {products}")
+
     context = {
         "query": query,
         "baldai": baldai,
+        "products": products,
     }
     return render(request, template_name='search.html', context=context)
 

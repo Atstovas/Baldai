@@ -4,12 +4,21 @@
 
 {% block "content" %}
 <h1>Paieškos pagal užklausą "{{ query }}" rezultatai:</h1>
-{% if baldai %}
-{% for baldas in baldai %}
-<p><a href="{% url 'baldas' baldas.pk %}">{{ baldas }}</a></p>
-<hr>
-{% endfor %}
+{% if not baldai and not products %}
+<p>Nieko nepavyko surasti.</p>
 {% else %}
-<p>Deja nieko neradome :(</p>
+    {% if baldai %}
+    {% for baldas in baldai %}
+    <p><a href="{% url 'baldas' baldas.pk %}">{{ baldas }}</a></p>
+    <hr>
+    {% endfor %}
+    {% endif %}
+    <hr>
+    {% if products %}
+    {% for product in products %}
+    <p><a href="{% url 'product' product.pk %}">{{ product }}</a></p>
+    <hr>
+    {% endfor %}
+    {% endif %}
 {% endif %}
 {% endblock %}
