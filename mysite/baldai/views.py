@@ -219,8 +219,7 @@ class OrderDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVie
 class OrderLineCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = OrderLine
     template_name = "orderline_form.html"
-    fields = ['order',
-              'product',
+    fields = ['product',
               'product_thickness',
               'qty1',
               'product_length',
@@ -250,8 +249,7 @@ class OrderLineCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Creat
 class OrderLineUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = OrderLine
     template_name = "orderline_form.html"
-    fields = ['order',
-              'product',
+    fields = ['product',
               'product_thickness',
               'qty1',
               'product_length',

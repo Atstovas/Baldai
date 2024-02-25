@@ -53,8 +53,8 @@
         <td>{{ line.right_edge_info.e_thickness_model }}mm</td>
         <td>{{ line.top_edge_info.e_thickness_model }}mm</td>
         <td>{{ line.bottom_edge_info.e_thickness_model }}mm</td>
-        <td>{{ line.mill_drawing_info_url|default_if_none:"-" }}</td>
-        <td>{{ line.sketch_custom_url|default_if_none:"-" }}</td>
+        <td>{{ line.mill_sketch_image_url|default_if_none:"-" }}</td>
+        <td>{{ line.sketch_image_url|default_if_none:"-" }}</td>
         <td>{{ line.drill_image_url|default_if_none:"-" }}</td>
         {% if order.client == user %}
         <td class="d-flex">

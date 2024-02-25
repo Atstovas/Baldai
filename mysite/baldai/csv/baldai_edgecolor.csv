@@ -1,16 +1,232 @@
 id	e_photo	e_color_name	e_color
-2	edge_color/Q1344.png	Cognac Brown Sherman Oak	Q1344
-3	edge_color/Q3176.png	Pewter Halifax Oak	Q3176
-4	edge_color/Q3359.png	Light Natural Davenport Oak	Q3359
-5	edge_color/F8930.png	Diamond Brushed Bronze	F8930
-6	edge_color/F8931.png	Diamond Brushed Inox	F8931
-7	edge_color/F8980.png	Linea Black	F8980
-8	edge_color/H8906.png	Three Layer Thermo Brown	H8906
-9	edge_color/H8911.png	Multiplex Oak	H8911
-10	edge_color/H8912.png	Multiplex Walnut	H8912
-11	edge_color/H8913.png	Three Layer Mountain Larch	H8913
-12	edge_color/H8955.png	Multiplex Black	H8955
-13	edge_color/U8920.png	Doppia Black-Alu	U8920
-14	edge_color/U8921.png	Doppia Black Matt/Gloss	U8921
-15	edge_color/U8922.png	Doppia Black Gloss/Matt	U8922
-16	edge_color/W8904.png	Doppia Alpine White-Alu	W8904
+18	decors/H1384.png	White Casella Oak	H1384
+19	decors/H1367.png	Light Natural Casella Oak	H1367
+20	decors/H1385.png	Natural Casella Oak	H1385
+21	decors/H1386.png	Brown Casella Oak	H1386
+22	decors/H1369.png	Marone Casella Oak	H1369
+23	decors/H1176.png	White Halifax Oak	H1176
+24	decors/H1180.png	Natural Halifax Oak	H1180
+25	decors/H1181.png	Tobacco Halifax Oak	H1181
+26	decors/H3176.png	Pewter Halifax Oak	H3176
+27	decors/H3180.png	Brown Halifax Oak	H3180
+28	decors/H3406.png	Anthracite Mountain Larch	H3406
+29	decors/H3408.png	Thermo Brown Mountain Larch	H3408
+30	decors/H3409.png	Natural Mountain Larch	H3409
+31	decors/H1250.png	Navarra Ash	H1250
+32	decors/H1377.png	Sand Orleans Oak	H1377
+33	decors/H1379.png	Brown Orleans Oak	H1379
+34	decors/H3154.png	Dark Brown Charleston Oak	H3154
+35	decors/H1142.png	Brown Sacramento Oak	H1142
+36	decors/H1143.png	Grey Sacramento Oak	H1143
+37	decors/H3359.png	Light Natural Davenport Oak	H3359
+38	decors/H1344.png	Cognac Brown Sherman Oak	H1344
+39	decors/H1346.png	Anthracite Sherman Oak	H1346
+40	decors/H3311.png	Bleached Cuneo Oak	H3311
+41	decors/H3317.png	Brown Cuneo Oak	H3317
+42	decors/H3309.png	Sand Gladstone Oak	H3309
+43	decors/H3326.png	Grey-Beige Gladstone Oak	H3326
+44	decors/H3325.png	Tobacco Gladstone Oak	H3325
+45	decors/H3342.png	Sepia Gladstone Oak	H3342
+46	decors/H3041.png	Natural Eucalyptus	H3041
+47	decors/H1227.png	Brown Abano Ash	H1227
+48	decors/H1228.png	Anthracite Abano Ash	H1228
+49	decors/H1204.png	Light Natural Lugano Ash	H1204
+50	decors/H180.png	Natural Halifax Oak Horizontal	H180
+51	decors/H193.png	Oak Butcherblock	H193
+52	decors/H194.png	Walnut Butcherblock	H194
+53	decors/H305.png	Natural Tonsberg Oak	H305
+54	decors/H307.png	Brown Warmia Walnut Horizontal	H307
+55	decors/H309.png	Brown Tonsberg Oak	H309
+56	decors/H357.png	Vicenza Oak Horizontal	H357
+57	decors/H358.png	Grey Vicenza Oak Horizontal	H358
+58	decors/H433.png	Polar Aland Pine Horizontal	H433
+59	decors/H1113.png	Brown Kansas Oak	H1113
+60	decors/H1133.png	Natural Hamilton Oak Horizontal	H1133
+61	decors/H1145.png	Natural Bardolino Oak	H1145
+62	decors/H1146.png	Grey Bardolino Oak	H1146
+63	decors/H1199.png	Black-Brown Thermo Oak	H1199
+64	decors/H1223.png	Sevilla Ash	H1223
+65	decors/H1225.png	Trondheim Ash	H1225
+66	decors/H1242.png	Natural Sheffield Acacia	H1242
+67	decors/H1277.png	Light Lakeland Acacia	H1277
+68	decors/H1303.png	Brown Belmont Oak	H1303
+69	decors/H1307.png	Brown Warmia Walnut	H1307
+70	decors/H1312.png	Sand Beige Whiteriver Oak	H1312
+71	decors/H1313.png	Grey Brown Whiteriver Oak	H1313
+72	decors/H1318.png	Natural Wild Oak	H1318
+73	decors/H1330.png	Vintage Santa Fe Oak	H1330
+74	decors/H1357.png	Grey Beige Spree Oak	H1357
+75	decors/H1362.png	Light Baronia Oak	H1362
+76	decors/H1399.png	Truffle Brown Denver Oak	H1399
+77	decors/H1401.png	Cascina Pine	H1401
+78	decors/H1487.png	Bramberg Pine	H1487
+79	decors/H1636.png	Locarno Cherry	H1636
+80	decors/H1710.png	Sand Kentucky Chestnut	H1710
+81	decors/H1714.png	Lincoln Walnut	H1714
+82	decors/H1715.png	Parona Walnut	H1715
+83	decors/H1732.png	Sand Birch	H1732
+84	decors/H1910.png	Willow Beech	H1910
+85	decors/H2033.png	Dark Hunton Oak	H2033
+86	decors/H3003.png	Norwich Oak	H3003
+87	decors/H3012.png	Coco Bolo	H3012
+88	decors/H3043.png	Dark Brown Eucalyptus	H3043
+89	decors/H3131.png	Natural Davos Oak	H3131
+90	decors/H3133.png	Truffle Brown Davos Oak	H3133
+91	decors/H3146.png	Beige Grey Lorenzo Oak	H3146
+92	decors/H3152.png	Bleached Vicenza Oak	H3152
+93	decors/H3156.png	Grey Corbridge Oak	H3156
+94	decors/H3157.png	Vicenza Oak	H3157
+95	decors/H3158.png	Grey Vicenza Oak	H3158
+96	decors/H3165.png	Light Vicenza Oak	H3165
+97	decors/H3170.png	Natural Kendal Oak	H3170
+98	decors/H3171.png	Oiled Kendal Oak	H3171
+99	decors/H3190.png	Anthracite Fineline Metallic	H3190
+100	decors/H3195.png	White Fineline	H3195
+101	decors/H3197.png	Medium Grey Fineline	H3197
+102	decors/H3198.png	Dark Grey Fineline	H3198
+103	decors/H3303.png	Natural Hamilton Oak	H3303
+104	decors/H3331.png	Natural Nebraska Oak	H3331
+105	decors/H3332.png	Grey Nebraska Oak	H3332
+106	decors/H3349.png	Kaisersberg Oak	H3349
+107	decors/H3368.png	Natural Lancaster Oak	H3368
+108	decors/H3395.png	Natural Corbridge Oak	H3395
+109	decors/H3398.png	Cognac Kendal Oak	H3398
+110	decors/H3430.png	White Aland Pine	H3430
+111	decors/H3433.png	Polar Aland Pine	H3433
+112	decors/H3450.png	White Fleetwood	H3450
+113	decors/H3700.png	Natural Pacific Walnut	H3700
+114	decors/H3702.png	Tobacco Pacific Walnut	H3702
+115	decors/H3710.png	Natural Carini Walnut	H3710
+116	decors/H3730.png	Natural Hickory	H3730
+117	decors/H3734.png	Natural Dijon Walnut	H3734
+118	decors/H3840.png	Natural Mandal Maple	H3840
+119	decors/H3860.png	Champagne Hard Maple	H3860
+120	decors/F032.png	Grey Cascia Granite	F032
+121	decors/F052.png	Calais Travertine	F052
+122	decors/F074.png	Light Grey Valmasino Marble	F074
+123	decors/F076.png	Grey Braganza Granite	F076
+124	decors/F121.png	Anthracite Metal Rock	F121
+125	decors/F186.png	Light Grey Chicago Concrete	F186
+126	decors/F187.png	Dark Grey Chicago Concrete	F187
+127	decors/F206.png	Black Pietra Grigia	F206
+128	decors/F226.png	Sand Beige Titanite	F226
+129	decors/F228.png	Anthracite Titanite	F228
+130	decors/F229.png	Cremona Marble	F229
+131	decors/F235.png	Scivaro Slate	F235
+132	decors/F237.png	Cupria Slate	F237
+133	decors/F243.png	Light Grey Candela Marble	F243
+134	decors/F244.png	Anthracite Candela Marble	F244
+135	decors/F247.png	Anthracite Mountain Basalt	F247
+136	decors/F302.png	Ferro Bronze	F302
+137	decors/F311.png	Ceramic Anthracite	F311
+138	decors/F323.png	Cobra Bronze	F323
+139	decors/F416.png	Beige Textile	F416
+140	decors/F417.png	Grey Textile	F417
+141	decors/F422.png	White Linen	F422
+142	decors/F424.png	Brown Linen	F424
+143	decors/F433.png	Anthracite Linen	F433
+144	decors/F434.png	Cubanite Steelbrush	F434
+145	decors/F486.png	White Sparkle Grain	F486
+146	decors/F487.png	Grey Sparkle Grain	F487
+147	decors/F490.png	Black Sparkle Grain	F490
+148	decors/F500.png	Metallic Inox	F500
+149	decors/F527.png	Golden Brushed Metal	F527
+150	decors/F528.png	Bronze Brushed Metal	F528
+151	decors/F620.png	Anthracite Steel Grey	F620
+152	decors/F634.png	Grey Canvas	F634
+153	decors/F635.png	Anthracite Canvas	F635
+154	decors/F637.png	White Chromix	F637
+155	decors/F638.png	Chromix Silver	F638
+156	decors/F676.png	Sand Grey Calvia Stone	F676
+157	decors/F685.png	Acapulco	F685
+158	decors/F765.png	Brushed Silvergrey	F765
+159	decors/F800.png	Crystal Marble	F800
+160	decors/F812.png	White Levanto Marble	F812
+161	decors/W1000.png	Premium White	W1000
+162	decors/W1001.png	Solid Premium White	W1001
+163	decors/W1100.png	Alpine White	W1100
+164	decors/W1101.png	Solid Alpine White	W1101
+165	decors/W1200.png	Porcelain White	W1200
+166	decors/W960.png	Classic White	W960
+167	decors/W980.png	Platinum White	W980
+168	decors/W990.png	Crystal White	W990
+169	decors/U104.png	Alabaster White	U104
+170	decors/U113.png	Cotton Beige	U113
+171	decors/U114.png	Brilliant Yellow	U114
+172	decors/U115.png	Carat Beige	U115
+173	decors/U125.png	Sand Yellow	U125
+174	decors/U131.png	Citrus Yellow	U131
+175	decors/U156.png	Sand Beige	U156
+176	decors/U163.png	Curry Yellow	U163
+177	decors/U201.png	Pebble Grey	U201
+178	decors/U211.png	Almond Beige	U211
+179	decors/U216.png	CamÃ¨ Beige	U216
+180	decors/U222.png	Crema Beige	U222
+181	decors/U232.png	Apricot Nude	U232
+182	decors/U311.png	Burgundy Red	U311
+183	decors/U321.png	China Red	U321
+184	decors/U323.png	Chilli Red	U323
+185	decors/U325.png	Antique Rose	U325
+186	decors/U332.png	Orange	U332
+187	decors/U335.png	Rusty Red	U335
+188	decors/U350.png	Siena Orange	U350
+189	decors/U363.png	Flamingo Pink	U363
+190	decors/U399.png	Garnet Red	U399
+191	decors/U420.png	Purple	U420
+192	decors/U430.png	Violet	U430
+193	decors/U500.png	Glacier Blue	U500
+194	decors/U502.png	Misty Blue	U502
+195	decors/U504.png	Tyrolean Blue	U504
+196	decors/U505.png	Nordic Blue	U505
+197	decors/U522.png	Horizon Blue	U522
+198	decors/U525.png	Delft Blue	U525
+199	decors/U540.png	Denim Blue	U540
+200	decors/U545.png	Baltic Blue	U545
+201	decors/U560.png	Deep Sea Blue	U560
+202	decors/U565.png	Ocean Blue	U565
+203	decors/U570.png	Midnight Blue	U570
+204	decors/U575.png	Cosmos Blue	U575
+205	decors/U599.png	Indigo Blue	U599
+206	decors/U604.png	Reed Green	U604
+207	decors/U606.png	Forest Green	U606
+208	decors/U608.png	Pistachio Green	U608
+209	decors/U626.png	Kiwi Green	U626
+210	decors/U630.png	Lime Green	U630
+211	decors/U633.png	Turquoise Blue	U633
+212	decors/U636.png	Fjord Green	U636
+213	decors/U638.png	Sage Green	U638
+214	decors/U640.png	Olive Green	U640
+215	decors/U645.png	Agave Green	U645
+216	decors/U646.png	Niagara Green	U646
+217	decors/U665.png	Stone Green	U665
+218	decors/U699.png	Fir Green	U699
+219	decors/U702.png	Cashmere Grey	U702
+220	decors/U7021.png	Solid Cashmere Grey	U7021
+221	decors/U705.png	Angora Grey	U705
+222	decors/U707.png	Silk Grey	U707
+223	decors/U708.png	Light Grey	U708
+224	decors/U7081.png	Solid Light Grey	U7081
+225	decors/U727.png	Stone Grey	U727
+226	decors/U732.png	Dust Grey	U732
+227	decors/U740.png	Dark Taupe	U740
+228	decors/U741.png	Lava Grey	U741
+229	decors/U748.png	Truffle Brown	U748
+230	decors/U750.png	Taupe Grey	U750
+231	decors/U763.png	Pearl Grey	U763
+232	decors/U767.png	Cubanit Grey	U767
+233	decors/U775.png	White Grey	U775
+234	decors/U780.png	Monument Grey	U780
+235	decors/U788.png	Arctic Grey	U788
+236	decors/U818.png	Dark Brown	U818
+237	decors/U830.png	Caramel Nude	U830
+238	decors/U899.png	Soft Black	U899
+239	decors/U8991.png	Solid Soft Black	U8991
+240	decors/U960.png	Onyx Grey	U960
+241	decors/U961.png	Graphite Grey	U961
+242	decors/U963.png	Diamond Grey	U963
+243	decors/U9631.png	Solid Diamond Grey	U9631
+244	decors/U968.png	Carbon Grey	U968
+245	decors/U989.png	Black Brown	U989
+246	decors/U998.png	Shadow Black	U998
+247	decors/U999.png	Black	U999
+248	decors/U9991.png	Solid Black	U9991
