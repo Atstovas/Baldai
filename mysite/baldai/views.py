@@ -45,7 +45,7 @@ def multiply_products_with_qty():
 
 def baldai(request):
     baldai = Baldas.objects.all()
-    paginator = Paginator(baldai, per_page=3)
+    paginator = Paginator(baldai, per_page=30)
     page_number = request.GET.get("page")
     paged_baldai = paginator.get_page(page_number)
     context = {
@@ -192,16 +192,36 @@ class OrderDetailView(FormMixin, generic.DetailView):
         return super().form_valid(form)
 
 
+from datetime import datetime, timedelta
+
 class OrderCreateView(LoginRequiredMixin, generic.CreateView):
     model = Order
     template_name = "order_form.html"
-    # fields = ['baldas', 'deadline', 'status']
     form_class = OrderCreateUpdateForm
     success_url = "/baldai/orders/"
+
+    def get_initial(self):
+        # Set the initial data for the form.
+        initial = super().get_initial()
+        baldas_objects = Baldas.objects.filter(serijos_nr='TIKPLOKSTE')
+        if baldas_objects.exists():
+            initial['baldas'] = baldas_objects.first()
+        else:
+            # Handle the case where no Baldas object is found
+            initial['baldas'] = None
+        initial['status'] = 'Pateiktas'
+        initial['deadline'] = datetime.now() + timedelta(days=30)  # Set the deadline to 30 days in the future
+        return initial
 
     def form_valid(self, form):
         form.instance.client = self.request.user
         return super().form_valid(form)
+
+    def form_valid(self, form):
+        form.instance.client = self.request.user
+        return super().form_valid(form)
+
+
 
 
 class OrderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
@@ -209,7 +229,6 @@ class OrderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
     template_name = "order_form.html"
     # fields = ['baldas', 'deadline', 'status']
     form_class = OrderCreateUpdateForm
-
     # success_url = "/autoservice/orders/"
 
     def get_success_url(self):
@@ -221,6 +240,8 @@ class OrderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
 
     def test_func(self):
         return self.get_object().client == self.request.user
+
+
 
 
 class OrderDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):

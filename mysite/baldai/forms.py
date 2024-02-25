@@ -30,5 +30,5 @@ class DateTimeInput(forms.DateTimeInput):
 class OrderCreateUpdateForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ['baldas', 'deadline', 'status']
+        fields = ['baldas', 'deadline', ]
         widgets = {"deadline": DateTimeInput()}
