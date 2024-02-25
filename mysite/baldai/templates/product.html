@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block "title" %}Product{% endblock %}
+
+{% block "content" %}
+{% load static %}
+{% if product.decor_pic %}
+<img src="{{ product.decor_pic.url }}" class="card-img-top" style="width: 80%; height: auto;" alt="...">
+{% else %}
+<img src="{% static 'img/default_decor_small.jpg' %}" class="card-img-top" style="width: 50%; height: auto;">
+{% endif %}
+<h1>Baldinės plokštės kodas kataloge: {{ product.decor }}</h1>
+<p><strong>Pavadinimas: </strong>{{ product.p_name }}</p>
+<p><strong>Kaina: </strong>{{ product.price_product }}€ 1/m<sup>2</sup></p>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block "title" %}Dekoro katalogas{% endblock %}
+
+{% block "content" %}
+{% load static %}
+<h1>Plokščių katalogas:</h1>
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 d-flex align-items-stretch">
+        <div class="card mb-4 shadow-sm">
+            {% if product.decor_pic %}
+            <img src="{{ product.decor_pic.url }}" class="card-img-top" alt="...">
+            {% else %}
+            <img src="{% static 'img/default_decor_small.jpg' %}" class="card-img-top">
+            {% endif %}
+            <div class="card-body">
+                <p class="card-text"><a href="{{ product.id }}">{{ product.decor }}</a></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="container puslapiai">
+    <nav aria-label="...">
+        {% if products.has_other_pages %}
+        <ul class="pagination pagination-sm justify-content-center">
+            {% for i in products.paginator.page_range %}
+            {% if products.number == i %}
+            <li class="page-item active">
+                <a class="page-link">{{ i }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </nav>
+</div>
+{% endblock %}

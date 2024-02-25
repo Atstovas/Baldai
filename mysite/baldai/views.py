@@ -53,6 +53,16 @@ def baldai(request):
     }
     return render(request, template_name="baldai.html", context=context)
 
+def products(request):
+    products = Product.objects.all()
+    paginator = Paginator(products, per_page=24)
+    page_number = request.GET.get("page")
+    paged_products = paginator.get_page(page_number)
+    context = {
+        "products": paged_products,
+    }
+    return render(request, template_name="products.html", context=context)
+
 
 def baldas(request, baldas_id):
     baldas = Baldas.objects.get(pk=baldas_id)
@@ -60,6 +70,13 @@ def baldas(request, baldas_id):
         "baldas": baldas,
     }
     return render(request, template_name="baldas.html", context=context)
+
+def product(request, product_id):
+    product = Product.objects.get(pk=product_id)
+    context = {
+        "product": product,
+    }
+    return render(request, template_name="product.html", context=context)
 
 
 def search(request):
