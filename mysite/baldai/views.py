@@ -35,11 +35,13 @@ def index(request):
     }
     return render(request, template_name="index.html", context=result)
 
+
 def multiply_products_with_qty():
     num_products = Product.objects.all().count()
     total_qty = OrderLine.objects.filter(product__isnull=False).aggregate(Sum('qty1'))['qty1__sum']
     result = num_products * total_qty if total_qty else 0
     return result
+
 
 def baldai(request):
     baldai = Baldas.objects.all()
@@ -63,10 +65,10 @@ def baldas(request, baldas_id):
 def search(request):
     query = request.GET.get('query')
     baldai = Baldas.objects.filter(Q(client_name__icontains=query) |
-                                      Q(delete_me__make__icontains=query) |
-                                      Q(delete_me__model__icontains=query) |
-                                      Q(serijos_nr__icontains=query)) #|
-                                      #Q(vin_code__icontains=query))
+                                   Q(delete_me__make__icontains=query) |
+                                   Q(delete_me__model__icontains=query) |
+                                   Q(serijos_nr__icontains=query))  # |
+    # Q(vin_code__icontains=query))
     context = {
         "query": query,
         "baldai": baldai,
@@ -129,6 +131,7 @@ def profile(request):
             'p_form': p_form,
         }
     return render(request, template_name="profile.html", context=context)
+
 
 class MyOrderListView(LoginRequiredMixin, generic.ListView):
     model = Order
@@ -216,7 +219,20 @@ class OrderDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVie
 class OrderLineCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = OrderLine
     template_name = "orderline_form.html"
-    fields = ['service', 'qty1']
+    fields = ['order',
+              'product',
+              'product_thickness',
+              'qty1',
+              'product_length',
+              'product_width',
+              'left_edge_info',
+              'right_edge_info',
+              'top_edge_info',
+              'bottom_edge_info',
+              "mill_drawing_info",
+              "sketch_custom",
+              "sketch_drill_info"]
+
     # success_url = "/autoservice/orders/"
 
     def get_success_url(self):
@@ -234,7 +250,19 @@ class OrderLineCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Creat
 class OrderLineUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = OrderLine
     template_name = "orderline_form.html"
-    fields = ['service', 'qty1']
+    fields = ['order',
+              'product',
+              'product_thickness',
+              'qty1',
+              'product_length',
+              'product_width',
+              'left_edge_info',
+              'right_edge_info',
+              'top_edge_info',
+              'bottom_edge_info',
+              "mill_drawing_info",
+              "sketch_custom",
+              "sketch_drill_info"]
 
     def get_success_url(self):
         return reverse("order", kwargs={"pk": self.kwargs['order_pk']})

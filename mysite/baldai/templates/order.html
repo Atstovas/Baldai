@@ -3,7 +3,7 @@
 {% block "title" %}{{ order.order_no }}{% endblock %}
 
 {% block "content" %}
-<h1>Užsakymas {{ order.date|date:"Y-m-d | H:i:s" }}</h1>
+<h1>{{order.order_no}} Užsakymas {{ order.date|date:"Y-m-d | H:i:s" }}</h1>
 {% if order.client == user %}
 <div>
     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'order_update' order.pk %}">Redaguoti</a>

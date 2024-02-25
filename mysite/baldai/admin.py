@@ -58,7 +58,7 @@ class OrderLineAdmin(admin.ModelAdmin):
         (
             'Plokštė',
             {
-                "fields": ["product", "product_thickness", "qty1", "price_product", "product_length", "product_width"],
+                "fields": ["product", "product_thickness", "qty1", "product_length", "product_width"],
             },
         ),
         (
@@ -86,7 +86,7 @@ class OrderLineAdmin(admin.ModelAdmin):
     list_filter = ('order', 'product')
     search_fields = ('product__decor', 'order__order_no')
 
-    readonly_fields = ('display_total_length', 'display_total_width')
+    readonly_fields = ('display_total_length', 'display_total_width',)
 
     def mill_sketch_image_url(self, obj):
         if obj.mill_drawing_info and obj.mill_drawing_info.sketch:

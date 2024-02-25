@@ -312,7 +312,7 @@ class OrderLine(models.Model):
                                           blank=True,
                                           default=None,
                                           )
-    qty1 = models.IntegerField(verbose_name="Kiekis1", default=None, blank=True, null=True)
+    qty1 = models.IntegerField(verbose_name="Kiekis", default=None, blank=True, null=True)
     qty2 = models.IntegerField(verbose_name="Kiekis2", default=None, blank=True, null=True)
     product_length = models.IntegerField(verbose_name="Ilgis", default=None, blank=True, null=True)
     product_width = models.IntegerField(verbose_name="Plotis", default=None, blank=True, null=True)
