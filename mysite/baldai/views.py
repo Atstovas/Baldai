@@ -232,7 +232,17 @@ class OrderLineCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Creat
               "sketch_custom",
               "sketch_drill_info"]
 
-    # success_url = "/autoservice/orders/"
+    def get_initial(self):
+        initial = super().get_initial()
+        last_orderline = OrderLine.objects.filter(order__client=self.request.user).order_by('-id').first()
+        if last_orderline:
+            initial['product'] = last_orderline.product
+            initial['product_thickness'] = last_orderline.product_thickness
+            initial['left_edge_info'] = last_orderline.left_edge_info
+            initial['right_edge_info'] = last_orderline.right_edge_info
+            initial['top_edge_info'] = last_orderline.top_edge_info
+            initial['bottom_edge_info'] = last_orderline.bottom_edge_info
+        return initial
 
     def get_success_url(self):
         return reverse("order", kwargs={"pk": self.kwargs['order_pk']})

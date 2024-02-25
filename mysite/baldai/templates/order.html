@@ -18,6 +18,7 @@
 <table class="table table-hover">
     <thead>
     <tr>
+        <th>Nr.</th>
         <th>Plokštė</th>
         <th>Storis</th>
         <th>Kiekis</th>
@@ -41,6 +42,7 @@
     <tbody>
     {% for line in order.lines.all %}
     <tr>
+        <td>{{ forloop.counter }}</td>
         <td>{{ line.product_decor_url_with_decor|default_if_none:"-" }}</td>
         <td>{{ line.product_thickness }}</td>
         <td>{{ line.qty1 }}</td>
