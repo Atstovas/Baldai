@@ -376,3 +376,13 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateV
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+
+class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = OrderComment
+    template_name = 'comment_confirm_delete.html'
+
+    def get_success_url(self):
+        return reverse('order', kwargs={'pk': self.object.order.pk})
+
+    def test_func(self):
+        return self.get_object().author == self.request.user

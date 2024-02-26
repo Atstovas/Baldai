@@ -103,9 +103,14 @@
 <strong>{{ comment.author }}</strong>, <em>{{ comment.date_created}}</em>
 <p>{{ comment.content }}</p>
 {% if comment.author == user %}
-        <div class="d-flex">
-            <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'ordercomment_update' order.pk comment.pk %}">Redaguoti</a>
-        </div>
+<div class="d-flex">
+    <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'ordercomment_update' order.pk comment.pk %}">Redaguoti</a>
+</div>
+<form method="POST" action="{% url 'comment_delete' order.pk comment.pk %}">
+    <form method="POST" action="{% url 'comment_delete' order.pk comment.pk %}">
+    {% csrf_token %}
+    <input class="btn btn-danger btn-sm mt-1 mb-1" type="submit" value="Ištrinti">
+</form>
 {% endif %}
 {% endfor %}
 {% else %}
