@@ -46,7 +46,7 @@
         <td>{{ line.product_decor_url_with_decor|default_if_none:"-" }}</td>
         <td>{{ line.product_thickness }}</td>
         <td>{{ line.qty1 }}</td>
-        <td>{{ line.product.price_product }}€</td>
+        <td>{{ line.product.price_product|floatformat:2 }}€</td>
         <td>{{ line.product_length }}</td>
         <td>{{ line.product_width }}</td>
         <td>{{ line.total_length }}</td>
@@ -71,13 +71,13 @@
     <!--Add button add new line if order.client == user -->
     {% if order.client == user %}
     <tr>
-        <td colspan="18">
+        <td colspan="15">
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'orderline_new' order.pk %}">Pridėti</a>
         </td>
     </tr>
     {% endif %}
     <tr>
-        <td colspan="18"><strong>BENDRA SUMA:</strong></td>
+        <td colspan="15"><strong>BENDRA SUMA:</strong></td>
         <td><strong>{{ order.total|floatformat:2 }}€</strong></td>
     </tr>
     </tbody>
@@ -86,7 +86,6 @@
 
 {% if user.is_authenticated %}
 <div class="fieldWrapper">
-    <hr>
     <br/>
     <h4>Palikite komentarą:</h4>
     <form action="" method="post">

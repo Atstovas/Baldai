@@ -11,5 +11,5 @@
 {% endif %}
 <h1>Baldinės plokštės kodas kataloge: {{ product.decor }}</h1>
 <p><strong>Pavadinimas: </strong>{{ product.p_name }}</p>
-<p><strong>Kaina: </strong>{{ product.price_product }}€ 1/m<sup>2</sup></p>
+<p><strong>Kaina: </strong>{{ product.price_product|floatformat:2 }}€ 1/m<sup>2</sup></p>
 {% endblock %}

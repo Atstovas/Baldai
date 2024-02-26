@@ -5,11 +5,24 @@
 {% block "content" %}
 {% load static %}
 {% if baldas.photo %}
-<img src="{{ baldas.photo.url }}" class="card-img-top" style="width: 80%; height: auto;" alt="...">
+<div class="btn-group container p-n3 my-n3 bg-dark text-white">
+    {% if baldas.id > 1 %}
+    <button type="button" class="btn btn-dark "><a href="{% url 'baldas' baldas.id|add:-1 %}" class="text-light">Previous</a></button>
+    {% else %}
+    <button type="button" class="btn btn-dark "><a href="#" class="text-light">Previous</a></button>
+    {% endif %}
+    {% if next_baldas %}
+    <button type="button" class="btn btn-dark "><a href="{% url 'baldas' next_baldas.id %}" class="text-light">Next</a></button>
+    {% else %}
+    <button type="button" class="btn btn-dark "><a href="#" class="text-light">Next</a></button>
+    {% endif %}
+</div>
+<img src="{{ baldas.photo.url }}" class="card-img-top" style="width: 100%; height: auto;" alt="...">
 {% else %}
 <img src="{% static 'img/furniture_default.png' %}" class="card-img-top" style="width: 50%; height: auto;">
 {% endif %}
 <h1>Baldo kodas kataloge: {{ baldas.serijos_nr }}</h1>
 <p><strong>Projektuotojas: </strong>{{ baldas.client_name }}</p>
 <p>{{ baldas.description|safe }}</p>
+
 {% endblock %}

@@ -11,7 +11,7 @@
 <p><a class="btn btn-secondary" href="{% url 'order_new' %}">Pateikti naują užsakymą</a></p>
 <p><a class="btn btn-secondary" href="{% url 'profile' %}">Redaguoti savo duomenis</a></p>
 <p><a class="btn btn-secondary" href="{% url 'my_orders' %}">Peržiūrėti savo užsakymus</a></p>
-<p><a class="btn btn-secondary" href="{% url 'logout' %}">Atsijungti</a></p>
+<p><a class="btn btn-outline-danger" href="{% url 'logout' %}">Atsijungti</a></p>
 {% endif %}
 <p><strong>Viso pagaminta plokščių: </strong>{{ product_qty_total }}</p>
 <p><strong>Atliktų užsakymų: </strong>{{ num_orders_done }}</p>

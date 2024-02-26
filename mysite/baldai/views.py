@@ -1,3 +1,5 @@
+from django.http import Http404
+
 from .models import *
 from django.views import generic
 from django.core.paginator import Paginator
@@ -72,9 +74,13 @@ def products(request):
 
 
 def baldas(request, baldas_id):
+    if baldas_id <= 0:
+        raise Http404("Baldas su tokiu ID neegzistuoja!")
     baldas = Baldas.objects.get(pk=baldas_id)
+    next_baldas = Baldas.objects.filter(id__gt=baldas_id).order_by('id').first()
     context = {
         "baldas": baldas,
+        "next_baldas": next_baldas,
     }
     return render(request, template_name="baldas.html", context=context)
 
