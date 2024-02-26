@@ -8,13 +8,18 @@ from django.shortcuts import redirect
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
-from django.contrib.auth import password_validation
+from django.contrib.auth import password_validation, logout
 from .forms import OrderCommentForm, UserUpdateForm, ProfileUpdateForm, OrderCreateUpdateForm
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 
 
+
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
+    return redirect('index')
 # Create your views here.
 def index(request):
     num_services = Service.objects.all().count()
@@ -170,7 +175,7 @@ class OrderListView(generic.ListView):
     model = Order
     template_name = "orders.html"
     context_object_name = "orders"
-    paginate_by = 3
+    paginate_by = 4
 
 
 class OrderDetailView(FormMixin, generic.DetailView):

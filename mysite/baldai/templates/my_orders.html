@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block "title" %}Mano taisymai{% endblock %}
+{% block "title" %}Asmeniniai užsakymai{% endblock %}
 
 {% block "content" %}
-<h1>Mano taisymai:</h1>
+<h1>Asmeniniai užsakymai:</h1>
 {% for order in orders %}
 <a class="{% if order.is_overdue %}text-danger{% endif %}" href="{% url 'order' order.pk %}">{{ order }}</a>
 <hr>

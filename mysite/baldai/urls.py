@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path("", views.index, name="index"),
@@ -13,6 +14,7 @@ urlpatterns = [
     path('my_orders/', views.MyOrderListView.as_view(), name="my_orders"),
     path('register/', views.register, name='register'),
     path("profile/", views.profile, name="profile"),
+    path('accounts/logout/', include('allauth.urls')),
     path("order/new", views.OrderCreateView.as_view(), name="order_new"),
     path("order/<int:pk>/update", views.OrderUpdateView.as_view(), name="order_update"),
     path("order/<int:pk>/delete", views.OrderDeleteView.as_view(), name="order_delete"),
