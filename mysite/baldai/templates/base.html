@@ -45,25 +45,25 @@
                     <button type="submit" class="nav-link mr-2 btn btn-secondary">Atsijungti
                     </button>
                 </form>
-            {% else %}
+                {% else %}
             <li class="nav-item">
-            <a class="nav-link active" href="{% url 'register' %}">Registruotis</a>
+                <a class="nav-link active" href="{% url 'register' %}">Registruotis</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active" href="{% url 'login' %}">Prisijungti</a>
+                <a class="nav-link active" href="{% url 'login' %}">Prisijungti</a>
             </li>
             {% endif %}
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">Pradžia</a>
+                <a class="nav-link" href="{% url 'index' %}">Pradžia</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'baldai' %}">Baldai</a>
+                <a class="nav-link" href="{% url 'baldai' %}">Baldai</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'products' %}">Dekoras</a>
+                <a class="nav-link" href="{% url 'products' %}">Dekoras</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'orders' %}">Užsakymai</a>
+                <a class="nav-link" href="{% url 'orders' %}">Užsakymai</a>
             </li>
             {% if user.is_authenticated %}
             </li>
@@ -92,8 +92,8 @@
     {% block "content" %}{% endblock %}
 </div>
 <div class="jumbotron text-center" style="margin-bottom:0">
-      <p>© Arūnas Žilinskas</p>
-  <p><a href="mailto:baldzius@dailide.com">baldzius@dailide.com</a></p>
+    <p>© Arūnas Žilinskas {% now "Y:m:d" %}</p>
+    <p><a href="mailto:baldzius@dailide.com">baldzius@dailide.com</a></p>
 </div>
 
 </body>
