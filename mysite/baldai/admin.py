@@ -6,7 +6,7 @@ from django.utils.html import format_html
 class OrderLineInLine(admin.TabularInline):
     model = OrderLine
     extra = 0
-    fields = ['order', 'product', 'product_thickness', 'qty1', 'price_product', 'product_length', 'product_width',
+    fields = ['order', 'product', 'product_thickness', 'qty1', 'product_length', 'product_width',
               'left_edge_info',
               'right_edge_info', 'top_edge_info', 'bottom_edge_info', "mill_drawing_info", "sketch_custom",
               "sketch_drill_info"]  # 'service','qty2',
@@ -122,6 +122,11 @@ class OrderLineAdmin(admin.ModelAdmin):
             return "-"
 
     drill_image_url.short_description = "GRĘŽIMAS"
+
+    def get_price_product(self, obj):
+        return obj.product.price_product if obj.product else None
+    get_price_product.short_description = 'Kaina'
+    get_price_product.admin_order_field = 'product__price_product'  # Allows column ordering in admin site
 
 
 admin.site.register(Service, ServiceAdmin)
