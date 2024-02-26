@@ -1,5 +1,3 @@
-import form
-from django.shortcuts import render, reverse
 from .models import *
 from django.views import generic
 from django.core.paginator import Paginator
@@ -14,15 +12,6 @@ from .forms import OrderCommentForm, UserUpdateForm, ProfileUpdateForm, OrderCre
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
-from django.http import JsonResponse
-from django.db.models import F
-
-
-# def logout_view(request):
-#     logout(request)
-#     # Redirect to a success page.
-#     return redirect('index')
-# Create your views here.
 from django.shortcuts import render
 from django.db.models.functions import TruncDay
 from django.urls import reverse

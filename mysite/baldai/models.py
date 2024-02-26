@@ -266,7 +266,7 @@ class Order(models.Model):
     def __str__(self):
         formatted_date = self.date.strftime("%Y:%m:%d %H:%M")
         formatted_total = format(self.total(), ".2f")
-        return f"{self.order_no}: meistras: {self.baldas} ({formatted_date}) - {self.total()} užsakovas: {self.client}"
+        return f"{self.order_no}: meistras: {self.baldas} ({formatted_date}) - {formatted_total} užsakovas: {self.client}"
 
     class Meta:
         verbose_name = 'Užsakymas'
