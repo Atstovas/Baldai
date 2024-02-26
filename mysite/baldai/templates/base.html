@@ -45,32 +45,32 @@
                     <button type="submit" class="nav-link mr-2 btn btn-secondary">Atsijungti
                     </button>
                 </form>
+            {% else %}
+            <li class="nav-item">
+            <a class="nav-link active" href="{% url 'register' %}">Registruotis</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" href="{% url 'login' %}">Prisijungti</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Pradžia</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'baldai' %}">Baldai</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}">Dekoras</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'orders' %}">Užsakymai</a>
+            </li>
+            {% if user.is_authenticated %}
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'my_orders' %}">Mano užsakymai</a>
             </li>
-            {% else %}
-            <li class="nav-item">
-                <a class="nav-link active" href="{% url 'register' %}">Registruotis</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="{% url 'login' %}">Prisijungti</a>
-            </li>
             {% endif %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">Pradžia</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'baldai' %}">Baldai</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'products' %}">Dekoras</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'orders' %}">Užsakymai</a>
-            </li>
-
-
             <li>
                 <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
                     <input name="query" class="form-control nav-link active" type="text" placeholder="Paieška">

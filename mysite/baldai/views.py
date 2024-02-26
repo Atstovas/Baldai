@@ -2,7 +2,7 @@ from django.shortcuts import render, reverse
 from .models import *
 from django.views import generic
 from django.core.paginator import Paginator
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import redirect
 from django.contrib.auth.forms import User
@@ -13,14 +13,21 @@ from .forms import OrderCommentForm, UserUpdateForm, ProfileUpdateForm, OrderCre
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
+from django.http import JsonResponse
+from django.db.models import F
 
 
-
-def logout_view(request):
-    logout(request)
-    # Redirect to a success page.
-    return redirect('index')
+# def logout_view(request):
+#     logout(request)
+#     # Redirect to a success page.
+#     return redirect('index')
 # Create your views here.
+from django.shortcuts import render
+from django.db.models.functions import TruncDay
+from django.urls import reverse
+
+
+
 def index(request):
     num_services = Service.objects.all().count()
     num_orders_done = Order.objects.filter(status__exact='i').count()
@@ -28,8 +35,18 @@ def index(request):
     num_visits = request.session.get('num_visits', 1)
     request.session['num_visits'] = num_visits + 1
 
+    # Aggregate the quantity of each product ordered per day
+    products_per_day = OrderLine.objects.annotate(date=TruncDay('order__date')).values('date').annotate(total_qty=Sum('qty1')).order_by('date')
+
+    # Convert the QuerySet to a list of dictionaries
+    products_per_day = list(products_per_day)
+
     # Call the function and store the result
     product_qty_result = OrderLine.objects.aggregate(total_qty=Sum('qty1'))['total_qty']
+
+    # Calculate the total quantity of all products
+    products = Product.objects.all()
+    product_qty_total = sum([product.total_quantity() for product in products])
 
     result = {
         "num_services": num_services,
@@ -37,15 +54,10 @@ def index(request):
         "num_baldai": num_baldai,
         "num_visits": num_visits,
         "product_qty_result": product_qty_result,  # Add the result to the dictionary
+        "products_per_day": products_per_day,  # Add the products_per_day to the dictionary
+        "product_qty_total": product_qty_total,  # Add the total quantity of products to the dictionary
     }
-    return render(request, template_name="index.html", context=result)
-
-
-def multiply_products_with_qty():
-    num_products = Product.objects.all().count()
-    total_qty = OrderLine.objects.filter(product__isnull=False).aggregate(Sum('qty1'))['qty1__sum']
-    result = num_products * total_qty if total_qty else 0
-    return result
+    return render(request, "index.html", result)
 
 
 def baldai(request):
@@ -232,6 +244,8 @@ class OrderCreateView(LoginRequiredMixin, generic.CreateView):
         form.instance.client = self.request.user
         return super().form_valid(form)
 
+    def get_success_url(self):
+        return reverse('order', args=[str(self.object.id)])
 
 
 

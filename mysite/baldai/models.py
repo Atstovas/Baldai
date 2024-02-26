@@ -6,6 +6,9 @@ from PIL import Image
 import pytz
 import uuid
 from django.utils.html import format_html
+from django.utils import timezone
+from django.db.models import Sum
+from django.urls import reverse
 
 utc = pytz.UTC
 
@@ -172,7 +175,11 @@ class Product(models.Model):
     p_name = models.CharField(verbose_name="Plokštės pavadinimas", max_length=50)
     decor_pic = models.ImageField('Dekoro nuotrauka', upload_to='decors', null=True, blank=True)
     price_product = models.FloatField(verbose_name="Product price", default=0.0)
+    date_created = models.DateTimeField(auto_now_add=True,)
 
+    def total_quantity(self):
+        total_qty = OrderLine.objects.filter(product=self).aggregate(total_qty=Sum('qty1'))['total_qty']
+        return total_qty if total_qty is not None else 0
     def __str__(self):
         return f"{self.decor} {self.p_name}"
 
@@ -188,6 +195,7 @@ class Baldas(models.Model):
     client_name = models.ForeignKey(to=User, verbose_name="Projektuotojas", on_delete=models.SET_NULL, null=True)
     photo = models.ImageField('Nuotrauka', upload_to='baldai', null=True, blank=True)
     description = HTMLField(verbose_name="Aprašymas", null=True, blank=True)
+
 
     def __str__(self):
         return f"{self.client_name} ({self.serijos_nr})"
@@ -251,6 +259,9 @@ class Order(models.Model):
             if line.product:
                 total += line.product.price_product * line.qty1
         return total
+
+    def get_absolute_url(self):
+        return reverse('order', args=[str(self.id)])
 
     def __str__(self):
         formatted_date = self.date.strftime("%Y:%m:%d %H:%M")
