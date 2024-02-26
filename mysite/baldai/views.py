@@ -1,3 +1,4 @@
+import form
 from django.shortcuts import render, reverse
 from .models import *
 from django.views import generic
@@ -356,3 +357,22 @@ class OrderLineDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.Delet
     def test_func(self):
         order = Order.objects.get(pk=self.kwargs['order_pk'])
         return order.client == self.request.user
+
+
+class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = OrderComment
+    #form_class = OrderCommentForm
+    template_name = 'comment_form.html'
+    fields = ['content']
+    #success_url = "/baldai/order/"
+
+    def get_success_url(self):
+        return reverse('order', kwargs={'pk': self.object.order.pk})
+
+    def test_func(self):
+        return self.get_object().author == self.request.user
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+

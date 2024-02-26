@@ -1,6 +1,7 @@
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
+from .views import CommentUpdateView
 
 urlpatterns = [
     path("", views.index, name="index"),
@@ -21,4 +22,5 @@ urlpatterns = [
     path("order/<int:order_pk>/newline", views.OrderLineCreateView.as_view(), name="orderline_new"),
     path("order/<int:order_pk>/line/<int:pk>/update", views.OrderLineUpdateView.as_view(), name="orderline_update"),
     path("order/<int:order_pk>/line/<int:pk>/delete", views.OrderLineDeleteView.as_view(), name="orderline_delete"),
+    path('order/<int:order_pk>/ordercomment/<int:pk>/update', CommentUpdateView.as_view(), name='ordercomment_update'),
 ]
