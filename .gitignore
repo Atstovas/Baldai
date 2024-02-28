@@ -21,3 +21,5 @@
 /mysite/baldai/migrations/0018_edgecolor_e_color_name_alter_baldas_serijos_nr_and_more.py
 /mysite/baldai/migrations/0019_alter_baldas_serijos_nr_alter_order_order_no.py
 /mysite/db.sqlite3
+/mysite/mysite/settings.py
+/mysite/mysite/settings.py

@@ -19,6 +19,19 @@ from django.db.models.functions import TruncDay
 from django.urls import reverse
 
 
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+def login_test_user(request):
+    test_user = authenticate(request, username='testuser', password='testpassword')
+    if test_user is not None:
+        login(request, test_user)
+        return HttpResponseRedirect(reverse('index'))  # replace 'home' with the name of your home view
+    else:
+        # Redirect to a page that says the test user does not exist
+        return HttpResponseRedirect(reverse('baldai'))  #test_user_not_found -> replace 'test_user_not_found' with the name of your error view
+
 
 def index(request):
     num_services = Service.objects.all().count()

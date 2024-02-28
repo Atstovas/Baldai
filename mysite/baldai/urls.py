@@ -1,10 +1,11 @@
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
-from .views import CommentUpdateView
+from .views import CommentUpdateView, login_test_user
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path('login_test_user/', login_test_user, name='login_test_user'),
     path('baldai/', views.baldai, name="baldai"),
     path("baldai/<int:baldas_id>", views.baldas, name="baldas"),
     path('products/', views.products, name="products"),
