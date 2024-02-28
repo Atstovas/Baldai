@@ -1,232 +1,231 @@
-id	decor	p_name	decor_pic	price_product
-3	H1384	White Casella Oak	decors/H1384.png	3
-4	H1367	Light Natural Casella Oak	decors/H1367.png	4
-5	H1385	Natural Casella Oak	decors/H1385.png	5
-6	H1386	Brown Casella Oak	decors/H1386.png	6
-7	H1369	Marone Casella Oak	decors/H1369.png	7
-8	H1176	White Halifax Oak	decors/H1176.png	8
-9	H1180	Natural Halifax Oak	decors/H1180.png	9
-10	H1181	Tobacco Halifax Oak	decors/H1181.png	10
-11	H3176	Pewter Halifax Oak	decors/H3176.png	11
-12	H3180	Brown Halifax Oak	decors/H3180.png	12
-13	H3406	Anthracite Mountain Larch	decors/H3406.png	13
-14	H3408	Thermo Brown Mountain Larch	decors/H3408.png	14
-15	H3409	Natural Mountain Larch	decors/H3409.png	15
-16	H1250	Navarra Ash	decors/H1250.png	16
-17	H1377	Sand Orleans Oak	decors/H1377.png	17
-18	H1379	Brown Orleans Oak	decors/H1379.png	18
-19	H3154	Dark Brown Charleston Oak	decors/H3154.png	19
-20	H1142	Brown Sacramento Oak	decors/H1142.png	20
-21	H1143	Grey Sacramento Oak	decors/H1143.png	21
-22	H3359	Light Natural Davenport Oak	decors/H3359.png	22
-23	H1344	Cognac Brown Sherman Oak	decors/H1344.png	23
-24	H1346	Anthracite Sherman Oak	decors/H1346.png	24
-25	H3311	Bleached Cuneo Oak	decors/H3311.png	25
-26	H3317	Brown Cuneo Oak	decors/H3317.png	26
-27	H3309	Sand Gladstone Oak	decors/H3309.png	27
-28	H3326	Grey-Beige Gladstone Oak	decors/H3326.png	28
-29	H3325	Tobacco Gladstone Oak	decors/H3325.png	29
-30	H3342	Sepia Gladstone Oak	decors/H3342.png	30
-31	H3041	Natural Eucalyptus	decors/H3041.png	31
-32	H1227	Brown Abano Ash	decors/H1227.png	32
-33	H1228	Anthracite Abano Ash	decors/H1228.png	33
-34	H1204	Light Natural Lugano Ash	decors/H1204.png	34
-35	H180	Natural Halifax Oak Horizontal	decors/H180.png	35
-36	H193	Oak Butcherblock	decors/H193.png	36
-37	H194	Walnut Butcherblock	decors/H194.png	37
-38	H305	Natural Tonsberg Oak	decors/H305.png	38
-39	H307	Brown Warmia Walnut Horizontal	decors/H307.png	39
-40	H309	Brown Tonsberg Oak	decors/H309.png	40
-41	H357	Vicenza Oak Horizontal	decors/H357.png	41
-42	H358	Grey Vicenza Oak Horizontal	decors/H358.png	42
-43	H433	Polar Aland Pine Horizontal	decors/H433.png	43
-44	H1113	Brown Kansas Oak	decors/H1113.png	44
-45	H1133	Natural Hamilton Oak Horizontal	decors/H1133.png	45
-46	H1145	Natural Bardolino Oak	decors/H1145.png	46
-47	H1146	Grey Bardolino Oak	decors/H1146.png	47
-48	H1199	Black-Brown Thermo Oak	decors/H1199.png	48
-49	H1223	Sevilla Ash	decors/H1223.png	49
-50	H1225	Trondheim Ash	decors/H1225.png	50
-51	H1242	Natural Sheffield Acacia	decors/H1242.png	51
-52	H1277	Light Lakeland Acacia	decors/H1277.png	52
-53	H1303	Brown Belmont Oak	decors/H1303.png	53
-54	H1307	Brown Warmia Walnut	decors/H1307.png	54
-55	H1312	Sand Beige Whiteriver Oak	decors/H1312.png	55
-56	H1313	Grey Brown Whiteriver Oak	decors/H1313.png	56
-57	H1318	Natural Wild Oak	decors/H1318.png	57
-58	H1330	Vintage Santa Fe Oak	decors/H1330.png	58
-59	H1357	Grey Beige Spree Oak	decors/H1357.png	59
-60	H1362	Light Baronia Oak	decors/H1362.png	60
-61	H1399	Truffle Brown Denver Oak	decors/H1399.png	61
-62	H1401	Cascina Pine	decors/H1401.png	62
-63	H1487	Bramberg Pine	decors/H1487.png	63
-64	H1636	Locarno Cherry	decors/H1636.png	64
-65	H1710	Sand Kentucky Chestnut	decors/H1710.png	65
-66	H1714	Lincoln Walnut	decors/H1714.png	66
-67	H1715	Parona Walnut	decors/H1715.png	67
-68	H1732	Sand Birch	decors/H1732.png	68
-69	H1910	Willow Beech	decors/H1910.png	69
-70	H2033	Dark Hunton Oak	decors/H2033.png	70
-71	H3003	Norwich Oak	decors/H3003.png	71
-72	H3012	Coco Bolo	decors/H3012.png	72
-73	H3043	Dark Brown Eucalyptus	decors/H3043.png	73
-74	H3131	Natural Davos Oak	decors/H3131.png	74
-75	H3133	Truffle Brown Davos Oak	decors/H3133.png	75
-76	H3146	Beige Grey Lorenzo Oak	decors/H3146.png	76
-77	H3152	Bleached Vicenza Oak	decors/H3152.png	77
-78	H3156	Grey Corbridge Oak	decors/H3156.png	78
-79	H3157	Vicenza Oak	decors/H3157.png	79
-80	H3158	Grey Vicenza Oak	decors/H3158.png	80
-81	H3165	Light Vicenza Oak	decors/H3165.png	81
-82	H3170	Natural Kendal Oak	decors/H3170.png	82
-83	H3171	Oiled Kendal Oak	decors/H3171.png	83
-84	H3190	Anthracite Fineline Metallic	decors/H3190.png	84
-85	H3195	White Fineline	decors/H3195.png	85
-86	H3197	Medium Grey Fineline	decors/H3197.png	86
-87	H3198	Dark Grey Fineline	decors/H3198.png	87
-88	H3303	Natural Hamilton Oak	decors/H3303.png	88
-89	H3331	Natural Nebraska Oak	decors/H3331.png	89
-90	H3332	Grey Nebraska Oak	decors/H3332.png	90
-91	H3349	Kaisersberg Oak	decors/H3349.png	91
-92	H3368	Natural Lancaster Oak	decors/H3368.png	92
-93	H3395	Natural Corbridge Oak	decors/H3395.png	93
-94	H3398	Cognac Kendal Oak	decors/H3398.png	94
-95	H3430	White Aland Pine	decors/H3430.png	95
-96	H3433	Polar Aland Pine	decors/H3433.png	96
-97	H3450	White Fleetwood	decors/H3450.png	97
-98	H3700	Natural Pacific Walnut	decors/H3700.png	98
-99	H3702	Tobacco Pacific Walnut	decors/H3702.png	99
-100	H3710	Natural Carini Walnut	decors/H3710.png	100
-101	H3730	Natural Hickory	decors/H3730.png	101
-102	H3734	Natural Dijon Walnut	decors/H3734.png	102
-103	H3840	Natural Mandal Maple	decors/H3840.png	103
-104	H3860	Champagne Hard Maple	decors/H3860.png	104
-105	F032	Grey Cascia Granite	decors/F032.png	105
-106	F052	Calais Travertine	decors/F052.png	106
-107	F074	Light Grey Valmasino Marble	decors/F074.png	107
-108	F076	Grey Braganza Granite	decors/F076.png	108
-109	F121	Anthracite Metal Rock	decors/F121.png	109
-110	F186	Light Grey Chicago Concrete	decors/F186.png	110
-111	F187	Dark Grey Chicago Concrete	decors/F187.png	111
-112	F206	Black Pietra Grigia	decors/F206.png	112
-113	F226	Sand Beige Titanite	decors/F226.png	113
-114	F228	Anthracite Titanite	decors/F228.png	114
-115	F229	Cremona Marble	decors/F229.png	115
-116	F235	Scivaro Slate	decors/F235.png	116
-117	F237	Cupria Slate	decors/F237.png	117
-118	F243	Light Grey Candela Marble	decors/F243.png	118
-119	F244	Anthracite Candela Marble	decors/F244.png	119
-120	F247	Anthracite Mountain Basalt	decors/F247.png	120
-121	F302	Ferro Bronze	decors/F302.png	121
-122	F311	Ceramic Anthracite	decors/F311.png	122
-123	F323	Cobra Bronze	decors/F323.png	123
-124	F416	Beige Textile	decors/F416.png	124
-125	F417	Grey Textile	decors/F417.png	125
-126	F422	White Linen	decors/F422.png	126
-127	F424	Brown Linen	decors/F424.png	127
-128	F433	Anthracite Linen	decors/F433.png	128
-129	F434	Cubanite Steelbrush	decors/F434.png	129
-130	F486	White Sparkle Grain	decors/F486.png	130
-131	F487	Grey Sparkle Grain	decors/F487.png	131
-132	F490	Black Sparkle Grain	decors/F490.png	132
-133	F500	Metallic Inox	decors/F500.png	133
-134	F527	Golden Brushed Metal	decors/F527.png	134
-135	F528	Bronze Brushed Metal	decors/F528.png	135
-136	F620	Anthracite Steel Grey	decors/F620.png	136
-137	F634	Grey Canvas	decors/F634.png	137
-138	F635	Anthracite Canvas	decors/F635.png	138
-139	F637	White Chromix	decors/F637.png	139
-140	F638	Chromix Silver	decors/F638.png	140
-141	F676	Sand Grey Calvia Stone	decors/F676.png	141
-142	F685	Acapulco	decors/F685.png	142
-143	F765	Brushed Silvergrey	decors/F765.png	143
-144	F800	Crystal Marble	decors/F800.png	144
-145	F812	White Levanto Marble	decors/F812.png	145
-146	W1000	Premium White	decors/W1000.png	146
-147	W1001	Solid Premium White	decors/W1001.png	147
-148	W1100	Alpine White	decors/W1100.png	148
-149	W1101	Solid Alpine White	decors/W1101.png	149
-150	W1200	Porcelain White	decors/W1200.png	150
-151	W960	Classic White	decors/W960.png	151
-152	W980	Platinum White	decors/W980.png	152
-153	W990	Crystal White	decors/W990.png	153
-154	U104	Alabaster White	decors/U104.png	154
-155	U113	Cotton Beige	decors/U113.png	155
-156	U114	Brilliant Yellow	decors/U114.png	156
-157	U115	Carat Beige	decors/U115.png	157
-158	U125	Sand Yellow	decors/U125.png	158
-159	U131	Citrus Yellow	decors/U131.png	159
-160	U156	Sand Beige	decors/U156.png	160
-161	U163	Curry Yellow	decors/U163.png	161
-162	U201	Pebble Grey	decors/U201.png	162
-163	U211	Almond Beige	decors/U211.png	163
-164	U216	CamÃ¨ Beige	decors/U216.png	164
-165	U222	Crema Beige	decors/U222.png	165
-166	U232	Apricot Nude	decors/U232.png	166
-167	U311	Burgundy Red	decors/U311.png	167
-168	U321	China Red	decors/U321.png	168
-169	U323	Chilli Red	decors/U323.png	169
-170	U325	Antique Rose	decors/U325.png	170
-171	U332	Orange	decors/U332.png	171
-172	U335	Rusty Red	decors/U335.png	172
-173	U350	Siena Orange	decors/U350.png	173
-174	U363	Flamingo Pink	decors/U363.png	174
-175	U399	Garnet Red	decors/U399.png	175
-176	U420	Purple	decors/U420.png	176
-177	U430	Violet	decors/U430.png	177
-178	U500	Glacier Blue	decors/U500.png	178
-179	U502	Misty Blue	decors/U502.png	179
-180	U504	Tyrolean Blue	decors/U504.png	180
-181	U505	Nordic Blue	decors/U505.png	181
-182	U522	Horizon Blue	decors/U522.png	182
-183	U525	Delft Blue	decors/U525.png	183
-184	U540	Denim Blue	decors/U540.png	184
-185	U545	Baltic Blue	decors/U545.png	185
-186	U560	Deep Sea Blue	decors/U560.png	186
-187	U565	Ocean Blue	decors/U565.png	187
-188	U570	Midnight Blue	decors/U570.png	188
-189	U575	Cosmos Blue	decors/U575.png	189
-190	U599	Indigo Blue	decors/U599.png	190
-191	U604	Reed Green	decors/U604.png	191
-192	U606	Forest Green	decors/U606.png	192
-193	U608	Pistachio Green	decors/U608.png	193
-194	U626	Kiwi Green	decors/U626.png	194
-195	U630	Lime Green	decors/U630.png	195
-196	U633	Turquoise Blue	decors/U633.png	196
-197	U636	Fjord Green	decors/U636.png	197
-198	U638	Sage Green	decors/U638.png	198
-199	U640	Olive Green	decors/U640.png	199
-200	U645	Agave Green	decors/U645.png	200
-201	U646	Niagara Green	decors/U646.png	201
-202	U665	Stone Green	decors/U665.png	202
-203	U699	Fir Green	decors/U699.png	203
-204	U702	Cashmere Grey	decors/U702.png	204
-205	U7021	Solid Cashmere Grey	decors/U7021.png	205
-206	U705	Angora Grey	decors/U705.png	206
-207	U707	Silk Grey	decors/U707.png	207
-208	U708	Light Grey	decors/U708.png	208
-209	U7081	Solid Light Grey	decors/U7081.png	209
-210	U727	Stone Grey	decors/U727.png	210
-211	U732	Dust Grey	decors/U732.png	211
-212	U740	Dark Taupe	decors/U740.png	212
-213	U741	Lava Grey	decors/U741.png	213
-214	U748	Truffle Brown	decors/U748.png	214
-215	U750	Taupe Grey	decors/U750.png	215
-216	U763	Pearl Grey	decors/U763.png	216
-217	U767	Cubanit Grey	decors/U767.png	217
-218	U775	White Grey	decors/U775.png	218
-219	U780	Monument Grey	decors/U780.png	219
-220	U788	Arctic Grey	decors/U788.png	220
-221	U818	Dark Brown	decors/U818.png	221
-222	U830	Caramel Nude	decors/U830.png	222
-223	U899	Soft Black	decors/U899.png	223
-224	U8991	Solid Soft Black	decors/U8991.png	224
-225	U960	Onyx Grey	decors/U960.png	225
-226	U961	Graphite Grey	decors/U961.png	226
-227	U963	Diamond Grey	decors/U963.png	227
-228	U9631	Solid Diamond Grey	decors/U9631.png	228
-229	U968	Carbon Grey	decors/U968.png	229
-230	U989	Black Brown	decors/U989.png	230
-231	U998	Shadow Black	decors/U998.png	231
-232	U999	Black	decors/U999.png	232
-233	U9991	Solid Black	decors/U9991.png	233
+1	H1384	White Casella Oak	decors/H1384.png	67.39	2024-02-27 17:28:26
+2	H1367	Light Natural Casella Oak	decors/H1367.png	38.11	2024-02-27 17:28:26
+3	H1385	Natural Casella Oak	decors/H1385.png	39.59	2024-02-27 17:28:26
+4	H1386	Brown Casella Oak	decors/H1386.png	61.97	2024-02-27 17:28:26
+5	H1369	Marone Casella Oak	decors/H1369.png	36.79	2024-02-27 17:28:26
+6	H1176	White Halifax Oak	decors/H1176.png	79.25	2024-02-27 17:28:26
+7	H1180	Natural Halifax Oak	decors/H1180.png	30.03	2024-02-27 17:28:26
+8	H1181	Tobacco Halifax Oak	decors/H1181.png	79.72	2024-02-27 17:28:26
+9	H3176	Pewter Halifax Oak	decors/H3176.png	70.20	2024-02-27 17:28:26
+10	H3180	Brown Halifax Oak	decors/H3180.png	60.50	2024-02-27 17:28:26
+11	H3406	Anthracite Mountain Larch	decors/H3406.png	59.40	2024-02-27 17:28:26
+12	H3408	Thermo Brown Mountain Larch	decors/H3408.png	59.64	2024-02-27 17:28:26
+13	H3409	Natural Mountain Larch	decors/H3409.png	36.42	2024-02-27 17:28:26
+14	H1250	Navarra Ash	decors/H1250.png	47.76	2024-02-27 17:28:26
+15	H1377	Sand Orleans Oak	decors/H1377.png	31.70	2024-02-27 17:28:26
+16	H1379	Brown Orleans Oak	decors/H1379.png	69.35	2024-02-27 17:28:26
+17	H3154	Dark Brown Charleston Oak	decors/H3154.png	42.68	2024-02-27 17:28:26
+18	H1142	Brown Sacramento Oak	decors/H1142.png	42.54	2024-02-27 17:28:26
+19	H1143	Grey Sacramento Oak	decors/H1143.png	80.50	2024-02-27 17:28:26
+20	H3359	Light Natural Davenport Oak	decors/H3359.png	53.60	2024-02-27 17:28:26
+21	H1344	Cognac Brown Sherman Oak	decors/H1344.png	42.86	2024-02-27 17:28:26
+22	H1346	Anthracite Sherman Oak	decors/H1346.png	91.92	2024-02-27 17:28:26
+23	H3311	Bleached Cuneo Oak	decors/H3311.png	64.67	2024-02-27 17:28:26
+24	H3317	Brown Cuneo Oak	decors/H3317.png	49.90	2024-02-27 17:28:26
+25	H3309	Sand Gladstone Oak	decors/H3309.png	44.39	2024-02-27 17:28:26
+26	H3326	Grey-Beige Gladstone Oak	decors/H3326.png	80.73	2024-02-27 17:28:26
+27	H3325	Tobacco Gladstone Oak	decors/H3325.png	34.25	2024-02-27 17:28:26
+28	H3342	Sepia Gladstone Oak	decors/H3342.png	40.28	2024-02-27 17:28:26
+29	H3041	Natural Eucalyptus	decors/H3041.png	51.85	2024-02-27 17:28:26
+30	H1227	Brown Abano Ash	decors/H1227.png	82.93	2024-02-27 17:28:26
+31	H1228	Anthracite Abano Ash	decors/H1228.png	87.61	2024-02-27 17:28:26
+32	H1204	Light Natural Lugano Ash	decors/H1204.png	31.97	2024-02-27 17:28:26
+33	H180	Natural Halifax Oak Horizontal	decors/H180.png	59.49	2024-02-27 17:28:26
+34	H193	Oak Butcherblock	decors/H193.png	76.56	2024-02-27 17:28:26
+35	H194	Walnut Butcherblock	decors/H194.png	83.35	2024-02-27 17:28:26
+36	H305	Natural Tonsberg Oak	decors/H305.png	36.43	2024-02-27 17:28:26
+37	H307	Brown Warmia Walnut Horizontal	decors/H307.png	59.48	2024-02-27 17:28:26
+38	H309	Brown Tonsberg Oak	decors/H309.png	36.07	2024-02-27 17:28:26
+39	H357	Vicenza Oak Horizontal	decors/H357.png	74.20	2024-02-27 17:28:26
+40	H358	Grey Vicenza Oak Horizontal	decors/H358.png	43.69	2024-02-27 17:28:26
+41	H433	Polar Aland Pine Horizontal	decors/H433.png	63.99	2024-02-27 17:28:26
+42	H1113	Brown Kansas Oak	decors/H1113.png	62.77	2024-02-27 17:28:26
+43	H1133	Natural Hamilton Oak Horizontal	decors/H1133.png	65.46	2024-02-27 17:28:26
+44	H1145	Natural Bardolino Oak	decors/H1145.png	90.15	2024-02-27 17:28:26
+45	H1146	Grey Bardolino Oak	decors/H1146.png	47.76	2024-02-27 17:28:26
+46	H1199	Black-Brown Thermo Oak	decors/H1199.png	56.28	2024-02-27 17:28:26
+47	H1223	Sevilla Ash	decors/H1223.png	54.70	2024-02-27 17:28:26
+48	H1225	Trondheim Ash	decors/H1225.png	47.24	2024-02-27 17:28:26
+49	H1242	Natural Sheffield Acacia	decors/H1242.png	35.91	2024-02-27 17:28:26
+50	H1277	Light Lakeland Acacia	decors/H1277.png	58.41	2024-02-27 17:28:26
+51	H1303	Brown Belmont Oak	decors/H1303.png	68.21	2024-02-27 17:28:26
+52	H1307	Brown Warmia Walnut	decors/H1307.png	31.98	2024-02-27 17:28:26
+53	H1312	Sand Beige Whiteriver Oak	decors/H1312.png	50.53	2024-02-27 17:28:26
+54	H1313	Grey Brown Whiteriver Oak	decors/H1313.png	79.90	2024-02-27 17:28:26
+55	H1318	Natural Wild Oak	decors/H1318.png	63.34	2024-02-27 17:28:26
+56	H1330	Vintage Santa Fe Oak	decors/H1330.png	37.08	2024-02-27 17:28:26
+57	H1357	Grey Beige Spree Oak	decors/H1357.png	35.85	2024-02-27 17:28:26
+58	H1362	Light Baronia Oak	decors/H1362.png	61.11	2024-02-27 17:28:26
+59	H1399	Truffle Brown Denver Oak	decors/H1399.png	39.65	2024-02-27 17:28:26
+60	H1401	Cascina Pine	decors/H1401.png	35.11	2024-02-27 17:28:26
+61	H1487	Bramberg Pine	decors/H1487.png	34.73	2024-02-27 17:28:26
+62	H1636	Locarno Cherry	decors/H1636.png	30.18	2024-02-27 17:28:26
+63	H1710	Sand Kentucky Chestnut	decors/H1710.png	33.07	2024-02-27 17:28:26
+64	H1714	Lincoln Walnut	decors/H1714.png	46.07	2024-02-27 17:28:26
+65	H1715	Parona Walnut	decors/H1715.png	37.68	2024-02-27 17:28:26
+66	H1732	Sand Birch	decors/H1732.png	65.15	2024-02-27 17:28:26
+67	H1910	Willow Beech	decors/H1910.png	78.54	2024-02-27 17:28:26
+68	H2033	Dark Hunton Oak	decors/H2033.png	63.63	2024-02-27 17:28:26
+69	H3003	Norwich Oak	decors/H3003.png	78.03	2024-02-27 17:28:26
+70	H3012	Coco Bolo	decors/H3012.png	57.35	2024-02-27 17:28:26
+71	H3043	Dark Brown Eucalyptus	decors/H3043.png	37.44	2024-02-27 17:28:26
+72	H3131	Natural Davos Oak	decors/H3131.png	74.77	2024-02-27 17:28:26
+73	H3133	Truffle Brown Davos Oak	decors/H3133.png	35.75	2024-02-27 17:28:26
+74	H3146	Beige Grey Lorenzo Oak	decors/H3146.png	46.47	2024-02-27 17:28:26
+75	H3152	Bleached Vicenza Oak	decors/H3152.png	43.30	2024-02-27 17:28:26
+76	H3156	Grey Corbridge Oak	decors/H3156.png	53.25	2024-02-27 17:28:26
+77	H3157	Vicenza Oak	decors/H3157.png	43.28	2024-02-27 17:28:26
+78	H3158	Grey Vicenza Oak	decors/H3158.png	46.99	2024-02-27 17:28:26
+79	H3165	Light Vicenza Oak	decors/H3165.png	32.66	2024-02-27 17:28:26
+80	H3170	Natural Kendal Oak	decors/H3170.png	59.15	2024-02-27 17:28:26
+81	H3171	Oiled Kendal Oak	decors/H3171.png	85.04	2024-02-27 17:28:26
+82	H3190	Anthracite Fineline Metallic	decors/H3190.png	51.34	2024-02-27 17:28:26
+83	H3195	White Fineline	decors/H3195.png	70.88	2024-02-27 17:28:26
+84	H3197	Medium Grey Fineline	decors/H3197.png	35.14	2024-02-27 17:28:26
+85	H3198	Dark Grey Fineline	decors/H3198.png	44.41	2024-02-27 17:28:26
+86	H3303	Natural Hamilton Oak	decors/H3303.png	124.12	2024-02-27 17:28:26
+87	H3331	Natural Nebraska Oak	decors/H3331.png	69.97	2024-02-27 17:28:26
+88	H3332	Grey Nebraska Oak	decors/H3332.png	36.37	2024-02-27 17:28:26
+89	H3349	Kaisersberg Oak	decors/H3349.png	44.39	2024-02-27 17:28:26
+90	H3368	Natural Lancaster Oak	decors/H3368.png	33.98	2024-02-27 17:28:26
+91	H3395	Natural Corbridge Oak	decors/H3395.png	37.61	2024-02-27 17:28:26
+92	H3398	Cognac Kendal Oak	decors/H3398.png	43.29	2024-02-27 17:28:26
+93	H3430	White Aland Pine	decors/H3430.png	87.04	2024-02-27 17:28:26
+94	H3433	Polar Aland Pine	decors/H3433.png	116.65	2024-02-27 17:28:26
+95	H3450	White Fleetwood	decors/H3450.png	35.58	2024-02-27 17:28:26
+96	H3700	Natural Pacific Walnut	decors/H3700.png	80.73	2024-02-27 17:28:26
+97	H3702	Tobacco Pacific Walnut	decors/H3702.png	34.38	2024-02-27 17:28:26
+98	H3710	Natural Carini Walnut	decors/H3710.png	121.87	2024-02-27 17:28:26
+99	H3730	Natural Hickory	decors/H3730.png	56.38	2024-02-27 17:28:26
+100	H3734	Natural Dijon Walnut	decors/H3734.png	39.27	2024-02-27 17:28:26
+101	H3840	Natural Mandal Maple	decors/H3840.png	58.11	2024-02-27 17:28:26
+102	H3860	Champagne Hard Maple	decors/H3860.png	42.31	2024-02-27 17:28:26
+103	F032	Grey Cascia Granite	decors/F032.png	40.18	2024-02-27 17:28:26
+104	F052	Calais Travertine	decors/F052.png	59.76	2024-02-27 17:28:26
+105	F074	Light Grey Valmasino Marble	decors/F074.png	37.80	2024-02-27 17:28:26
+106	F076	Grey Braganza Granite	decors/F076.png	41.96	2024-02-27 17:28:26
+107	F121	Anthracite Metal Rock	decors/F121.png	42.05	2024-02-27 17:28:26
+108	F186	Light Grey Chicago Concrete	decors/F186.png	75.77	2024-02-27 17:28:26
+109	F187	Dark Grey Chicago Concrete	decors/F187.png	43.81	2024-02-27 17:28:26
+110	F206	Black Pietra Grigia	decors/F206.png	42.16	2024-02-27 17:28:26
+111	F226	Sand Beige Titanite	decors/F226.png	44.26	2024-02-27 17:28:26
+112	F228	Anthracite Titanite	decors/F228.png	43.09	2024-02-27 17:28:26
+113	F229	Cremona Marble	decors/F229.png	34.28	2024-02-27 17:28:26
+114	F235	Scivaro Slate	decors/F235.png	51.70	2024-02-27 17:28:26
+115	F237	Cupria Slate	decors/F237.png	80.33	2024-02-27 17:28:26
+116	F243	Light Grey Candela Marble	decors/F243.png	88.00	2024-02-27 17:28:26
+117	F244	Anthracite Candela Marble	decors/F244.png	59.03	2024-02-27 17:28:26
+118	F247	Anthracite Mountain Basalt	decors/F247.png	116.70	2024-02-27 17:28:26
+119	F302	Ferro Bronze	decors/F302.png	87.77	2024-02-27 17:28:26
+120	F311	Ceramic Anthracite	decors/F311.png	123.76	2024-02-27 17:28:26
+121	F323	Cobra Bronze	decors/F323.png	71.41	2024-02-27 17:28:26
+122	F416	Beige Textile	decors/F416.png	61.89	2024-02-27 17:28:26
+123	F417	Grey Textile	decors/F417.png	87.08	2024-02-27 17:28:26
+124	F422	White Linen	decors/F422.png	41.03	2024-02-27 17:28:26
+125	F424	Brown Linen	decors/F424.png	48.62	2024-02-27 17:28:26
+126	F433	Anthracite Linen	decors/F433.png	44.08	2024-02-27 17:28:26
+127	F434	Cubanite Steelbrush	decors/F434.png	31.69	2024-02-27 17:28:26
+128	F486	White Sparkle Grain	decors/F486.png	46.91	2024-02-27 17:28:26
+129	F487	Grey Sparkle Grain	decors/F487.png	44.26	2024-02-27 17:28:26
+130	F490	Black Sparkle Grain	decors/F490.png	75.99	2024-02-27 17:28:26
+131	F500	Metallic Inox	decors/F500.png	85.52	2024-02-27 17:28:26
+132	F527	Golden Brushed Metal	decors/F527.png	41.01	2024-02-27 17:28:26
+133	F528	Bronze Brushed Metal	decors/F528.png	117.22	2024-02-27 17:28:26
+134	F620	Anthracite Steel Grey	decors/F620.png	80.34	2024-02-27 17:28:26
+135	F634	Grey Canvas	decors/F634.png	33.74	2024-02-27 17:28:26
+136	F635	Anthracite Canvas	decors/F635.png	76.69	2024-02-27 17:28:26
+137	F637	White Chromix	decors/F637.png	81.94	2024-02-27 17:28:26
+138	F638	Chromix Silver	decors/F638.png	55.18	2024-02-27 17:28:26
+139	F676	Sand Grey Calvia Stone	decors/F676.png	86.18	2024-02-27 17:28:26
+140	F685	Acapulco	decors/F685.png	123.97	2024-02-27 17:28:26
+141	F765	Brushed Silvergrey	decors/F765.png	78.57	2024-02-27 17:28:26
+142	F800	Crystal Marble	decors/F800.png	53.56	2024-02-27 17:28:26
+143	F812	White Levanto Marble	decors/F812.png	44.23	2024-02-27 17:28:26
+144	W1000	Premium White	decors/W1000.png	51.01	2024-02-27 17:28:26
+145	W1001	Solid Premium White	decors/W1001.png	77.73	2024-02-27 17:28:26
+146	W1100	Alpine White	decors/W1100.png	32.87	2024-02-27 17:28:26
+147	W1101	Solid Alpine White	decors/W1101.png	73.59	2024-02-27 17:28:26
+148	W1200	Porcelain White	decors/W1200.png	75.42	2024-02-27 17:28:26
+149	W960	Classic White	decors/W960.png	45.79	2024-02-27 17:28:26
+150	W980	Platinum White	decors/W980.png	57.49	2024-02-27 17:28:26
+151	W990	Crystal White	decors/W990.png	49.05	2024-02-27 17:28:26
+152	U104	Alabaster White	decors/U104.png	45.04	2024-02-27 17:28:26
+153	U113	Cotton Beige	decors/U113.png	72.17	2024-02-27 17:28:26
+154	U114	Brilliant Yellow	decors/U114.png	120.82	2024-02-27 17:28:26
+155	U115	Carat Beige	decors/U115.png	53.11	2024-02-27 17:28:26
+156	U125	Sand Yellow	decors/U125.png	79.70	2024-02-27 17:28:26
+157	U131	Citrus Yellow	decors/U131.png	44.01	2024-02-27 17:28:26
+158	U156	Sand Beige	decors/U156.png	59.99	2024-02-27 17:28:26
+159	U163	Curry Yellow	decors/U163.png	64.08	2024-02-27 17:28:26
+160	U201	Pebble Grey	decors/U201.png	88.04	2024-02-27 17:28:26
+161	U211	Almond Beige	decors/U211.png	33.80	2024-02-27 17:28:26
+162	U216	CamÃ¨ Beige	decors/U216.png	35.22	2024-02-27 17:28:26
+163	U222	Crema Beige	decors/U222.png	58.27	2024-02-27 17:28:26
+164	U232	Apricot Nude	decors/U232.png	51.02	2024-02-27 17:28:26
+165	U311	Burgundy Red	decors/U311.png	76.26	2024-02-27 17:28:26
+166	U321	China Red	decors/U321.png	63.38	2024-02-27 17:28:26
+167	U323	Chilli Red	decors/U323.png	126.95	2024-02-27 17:28:26
+168	U325	Antique Rose	decors/U325.png	46.66	2024-02-27 17:28:26
+169	U332	Orange	decors/U332.png	34.91	2024-02-27 17:28:26
+170	U335	Rusty Red	decors/U335.png	57.88	2024-02-27 17:28:26
+171	U350	Siena Orange	decors/U350.png	62.76	2024-02-27 17:28:26
+172	U363	Flamingo Pink	decors/U363.png	75.77	2024-02-27 17:28:26
+173	U399	Garnet Red	decors/U399.png	71.17	2024-02-27 17:28:26
+174	U420	Purple	decors/U420.png	30.26	2024-02-27 17:28:26
+175	U430	Violet	decors/U430.png	90.35	2024-02-27 17:28:26
+176	U500	Glacier Blue	decors/U500.png	47.48	2024-02-27 17:28:26
+177	U502	Misty Blue	decors/U502.png	41.82	2024-02-27 17:28:26
+178	U504	Tyrolean Blue	decors/U504.png	31.17	2024-02-27 17:28:26
+179	U505	Nordic Blue	decors/U505.png	40.58	2024-02-27 17:28:26
+180	U522	Horizon Blue	decors/U522.png	79.66	2024-02-27 17:28:26
+181	U525	Delft Blue	decors/U525.png	42.21	2024-02-27 17:28:26
+182	U540	Denim Blue	decors/U540.png	46.91	2024-02-27 17:28:26
+183	U545	Baltic Blue	decors/U545.png	64.48	2024-02-27 17:28:26
+184	U560	Deep Sea Blue	decors/U560.png	46.58	2024-02-27 17:28:26
+185	U565	Ocean Blue	decors/U565.png	40.67	2024-02-27 17:28:26
+186	U570	Midnight Blue	decors/U570.png	60.28	2024-02-27 17:28:26
+187	U575	Cosmos Blue	decors/U575.png	72.45	2024-02-27 17:28:26
+188	U599	Indigo Blue	decors/U599.png	55.51	2024-02-27 17:28:26
+189	U604	Reed Green	decors/U604.png	35.18	2024-02-27 17:28:26
+190	U606	Forest Green	decors/U606.png	85.26	2024-02-27 17:28:26
+191	U608	Pistachio Green	decors/U608.png	115.37	2024-02-27 17:28:26
+192	U626	Kiwi Green	decors/U626.png	76.72	2024-02-27 17:28:26
+193	U630	Lime Green	decors/U630.png	48.07	2024-02-27 17:28:26
+194	U633	Turquoise Blue	decors/U633.png	45.09	2024-02-27 17:28:26
+195	U636	Fjord Green	decors/U636.png	51.89	2024-02-27 17:28:26
+196	U638	Sage Green	decors/U638.png	84.74	2024-02-27 17:28:26
+197	U640	Olive Green	decors/U640.png	87.85	2024-02-27 17:28:26
+198	U645	Agave Green	decors/U645.png	73.01	2024-02-27 17:28:26
+199	U646	Niagara Green	decors/U646.png	33.28	2024-02-27 17:28:26
+200	U665	Stone Green	decors/U665.png	52.69	2024-02-27 17:28:26
+201	U699	Fir Green	decors/U699.png	51.34	2024-02-27 17:28:26
+202	U702	Cashmere Grey	decors/U702.png	73.30	2024-02-27 17:28:26
+203	U7021	Solid Cashmere Grey	decors/U7021.png	39.26	2024-02-27 17:28:26
+204	U705	Angora Grey	decors/U705.png	47.80	2024-02-27 17:28:26
+205	U707	Silk Grey	decors/U707.png	52.81	2024-02-27 17:28:26
+206	U708	Light Grey	decors/U708.png	31.72	2024-02-27 17:28:26
+207	U7081	Solid Light Grey	decors/U7081.png	51.89	2024-02-27 17:28:26
+208	U727	Stone Grey	decors/U727.png	49.69	2024-02-27 17:28:26
+209	U732	Dust Grey	decors/U732.png	37.35	2024-02-27 17:28:26
+210	U740	Dark Taupe	decors/U740.png	73.36	2024-02-27 17:28:26
+211	U741	Lava Grey	decors/U741.png	34.95	2024-02-27 17:28:26
+212	U748	Truffle Brown	decors/U748.png	34.36	2024-02-27 17:28:26
+213	U750	Taupe Grey	decors/U750.png	85.60	2024-02-27 17:28:26
+214	U763	Pearl Grey	decors/U763.png	62.91	2024-02-27 17:28:26
+215	U767	Cubanit Grey	decors/U767.png	51.14	2024-02-27 17:28:26
+216	U775	White Grey	decors/U775.png	57.70	2024-02-27 17:28:26
+217	U780	Monument Grey	decors/U780.png	90.92	2024-02-27 17:28:26
+218	U788	Arctic Grey	decors/U788.png	66.39	2024-02-27 17:28:26
+219	U818	Dark Brown	decors/U818.png	82.24	2024-02-27 17:28:26
+220	U830	Caramel Nude	decors/U830.png	54.34	2024-02-27 17:28:26
+221	U899	Soft Black	decors/U899.png	69.22	2024-02-27 17:28:26
+222	U8991	Solid Soft Black	decors/U8991.png	32.24	2024-02-27 17:28:26
+223	U960	Onyx Grey	decors/U960.png	33.05	2024-02-27 17:28:26
+224	U961	Graphite Grey	decors/U961.png	61.27	2024-02-27 17:28:26
+225	U963	Diamond Grey	decors/U963.png	31.97	2024-02-27 17:28:26
+226	U9631	Solid Diamond Grey	decors/U9631.png	55.51	2024-02-27 17:28:26
+227	U968	Carbon Grey	decors/U968.png	68.84	2024-02-27 17:28:26
+228	U989	Black Brown	decors/U989.png	62.41	2024-02-27 17:28:26
+229	U998	Shadow Black	decors/U998.png	40.92	2024-02-27 17:28:26
+230	U999	Black	decors/U999.png	82.66	2024-02-27 17:28:26
+231	U9991	Solid Black	decors/U9991.png	39.66	2024-02-27 17:28:26

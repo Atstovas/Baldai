@@ -11,7 +11,41 @@
 <p><a class="btn btn-secondary" href="{% url 'order_new' %}">Pateikti naują užsakymą</a></p>
 <p><a class="btn btn-secondary" href="{% url 'profile' %}">Redaguoti savo duomenis</a></p>
 <p><a class="btn btn-secondary" href="{% url 'my_orders' %}">Peržiūrėti savo užsakymus</a></p>
-<p><a class="btn btn-outline-danger" href="{% url 'logout' %}">Atsijungti</a></p>
+
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#myModal">
+    Atsijungti
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Ar tikrai norite atsijungti?</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger">Atsijungti</button>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 {% endif %}
 <p><strong>Viso pagaminta plokščių: </strong>{{ product_qty_total }}</p>
 <p><strong>Atliktų užsakymų: </strong>{{ num_orders_done }}</p>
@@ -26,28 +60,28 @@
 
 <!-- Create the chart -->
 <script>
-var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('myChart').getContext('2d');
 
-// Create separate arrays for the labels and data
-var labels = [];
-var data = [];
-{% for product in products_per_day %}
-    labels.push("{{ product.date|date:'Y-m-d H:i:s' }}");
-    data.push({{ product.total_qty }});
-{% endfor %}
+    // Create separate arrays for the labels and data
+    var labels = [];
+    var data = [];
+    {% for product in products_per_day %}
+        labels.push("{{ product.date|date:'Y-m-d H:i:s' }}");
+        data.push({{ product.total_qty }});
+    {% endfor %}
 
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: labels,
-        datasets: [{
-            label: '# Pagaminta per dieną',
-            data: data,
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
-        }]
-    },
-});
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '# Pagaminta per dieną',
+                data: data,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        },
+    });
 </script>
 {% endblock %}

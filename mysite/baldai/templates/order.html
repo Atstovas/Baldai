@@ -7,7 +7,37 @@
 {% if order.client == user %}
 <div>
     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'order_update' order.pk %}">Redaguoti</a>
-    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'order_delete' order.pk %}">Ištrinti</a>
+
+    <button type="button" class="btn btn-sm mt-1 mb-1 btn-outline-danger" data-toggle="modal" data-target="#myModal">
+    Ištrinti
+    </button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Ar tikrai norite ištrinti?</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'order_delete' order.pk %}">Ištrinti</a>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 </div>
 {% endif %}
 <p><strong>Baldo projektas: </strong>{{ order.baldas }}</p>
@@ -61,9 +91,41 @@
         {% if order.client == user %}
         <td class="d-flex">
             <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'orderline_update' order.pk line.pk %}">Redaguoti</a>
-            <form method="POST" action="{% url 'orderline_delete' order.pk line.pk %}">
-                {% csrf_token %}<input class="btn btn-danger btn-sm mt-1 mb-1" type="submit" value="Ištrinti">
-            </form>
+
+
+            <button type="button" class="btn btn-danger btn-sm mt-1 mb-1" data-toggle="modal" data-target="#myModal2">
+                Ištrinti
+            </button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Ar tikrai norite ištrinti?</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form method="POST" action="{% url 'orderline_delete' order.pk line.pk %}">
+                    {% csrf_token %}<input class="btn btn-danger btn-sm mt-1 mb-1" type="submit" value="Ištrinti">
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
         </td>
         {% endif %}
     </tr>
@@ -115,4 +177,5 @@
 {% else %}
 <p>Užsakymas neturi komentarų</p>
 {% endif %}
+</form>
 {% endblock %}
