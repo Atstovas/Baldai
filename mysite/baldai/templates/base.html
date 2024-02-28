@@ -73,7 +73,7 @@
             {% endif %}
             <li>
                 <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
-                    <input name="query" class="form-control nav-link active" type="text" placeholder="Paieška">
+                    <input name="query" class="form-control active" type="text" placeholder="Paieška" >
                 </form>
             </li>
         </ul>
@@ -92,7 +92,7 @@
     {% block "content" %}{% endblock %}
 </div>
 <div class="jumbotron text-center" style="margin-bottom:0">
-    <p>© Arūnas Žilinskas {% now "Y:m:d" %}</p>
+    <p>© Arūnas Žilinskas {% now "Y" %}</p>
     <p><a href="mailto:baldzius@dailide.com">baldzius@dailide.com</a></p>
 </div>
 

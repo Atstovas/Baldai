@@ -9,11 +9,24 @@ from django.utils.html import format_html
 from django.utils import timezone
 from django.db.models import Sum
 from django.urls import reverse
+#import RPi.GPIO as GPIO
 
 utc = pytz.UTC
 
+# Use the Broadcom SOC channel numbering scheme
+#GPIO.setmode(GPIO.BCM)
+
+# Set up pin 17 as an output pin
+#GPIO.setup(17, GPIO.OUT)
+
+
 
 # Create your models here.
+
+
+#Remember to clean up the GPIO settings when your application ends to ensure that the GPIO resources are freed.
+# You can do this by calling GPIO.cleanup().
+
 class Service(models.Model):
     name = models.CharField(verbose_name="Pavadinimas", max_length=50)
     price = models.FloatField(verbose_name="Kaina")
@@ -83,7 +96,7 @@ class EdgeThickness(models.Model):
 
     class Meta:
         verbose_name = 'Briaunos storis mm'
-        verbose_name_plural = 'Braiunų storiai'
+        verbose_name_plural = 'Briaunų storiai'
 
 
 class EdgeColor(models.Model):
@@ -95,8 +108,8 @@ class EdgeColor(models.Model):
         return f"{self.e_color} {self.e_color_name}"
 
     class Meta:
-        verbose_name = 'Briaunos splava'
-        verbose_name_plural = 'Braiunų spalvos'
+        verbose_name = 'Briaunos spalva'
+        verbose_name_plural = 'Briaunų spalvos'
 
 
 class TopEdgeInfo(models.Model):
@@ -262,6 +275,23 @@ class Order(models.Model):
 
     def get_absolute_url(self):
         return reverse('order', args=[str(self.id)])
+
+
+    num_orders_done = models.IntegerField(default=0)
+
+    # def save(self, *args, **kwargs):
+    #     # If the instance already exists in the database
+    #     if self.pk is not None:
+    #         # Get the old value of num_orders_done
+    #         old_num_orders_done = Order.objects.get(pk=self.pk).num_orders_done
+    #
+    #         # If num_orders_done has changed
+    #         if self.num_orders_done != old_num_orders_done:
+    #             # Toggle the GPIO pin
+    #             current_state = GPIO.input(17)
+    #             GPIO.output(17, not current_state)
+    #
+    #     super().save(*args, **kwargs)
 
     def __str__(self):
         formatted_date = self.date.strftime("%Y:%m:%d %H:%M")
