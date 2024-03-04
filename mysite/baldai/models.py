@@ -10,6 +10,7 @@ from django.utils import timezone
 from django.db.models import Sum
 from django.urls import reverse
 import subprocess
+import platform
 
 
 utc = pytz.UTC
@@ -234,7 +235,13 @@ class Order(models.Model):
         # If the instance is new, run the script
         if is_new:
             try:
-                subprocess.run(['sudo', 'su', '-s', '/bin/bash','-c', 'python3 /baldai/gpio_17pin.py'])
+                if platform.system() == 'Windows':
+                    print("Running the script on Windows")
+                elif platform.system() == 'Linux':
+                    print("Running the script on Linux")
+                    subprocess.run(['sudo', 'su', '-s', '/bin/bash', '-c', 'python3 /baldai/gpio_17pin.py'])
+                else:
+                    print("Unknown operating system")
             except subprocess.CalledProcessError as e:
                 print(f"Error occurred while trying to run script: {e}")
 
