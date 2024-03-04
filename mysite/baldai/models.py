@@ -9,7 +9,8 @@ from django.utils.html import format_html
 from django.utils import timezone
 from django.db.models import Sum
 from django.urls import reverse
-#import RPi.GPIO as GPIO
+import subprocess
+
 
 utc = pytz.UTC
 
@@ -221,6 +222,30 @@ class Baldas(models.Model):
 class Order(models.Model):
     order_no = models.CharField(default=uuid.uuid4().hex[:6].upper(), verbose_name="Užsakymo Numeris", max_length=10,
                                 editable=False)
+
+    def save(self, *args, **kwargs):
+        # Check if the instance already exists in the database
+        is_new = self.pk is None
+
+        while Order.objects.filter(order_no=self.order_no).exists():
+            self.order_no = uuid.uuid4().hex[:6].upper()
+        super(Order, self).save(*args, **kwargs)
+
+        # If the instance is new, run the script
+        if is_new:
+            try:
+                subprocess.run(['sudo', 'su', '-s', '/bin/bash','-c', 'python3 /baldai/gpio_17pin.py'])
+            except subprocess.CalledProcessError as e:
+                print(f"Error occurred while trying to run script: {e}")
+
+    # def save(self, *args, **kwargs):
+    #     while True:
+    #         order_no = uuid.uuid4().hex[:6].upper()
+    #         if not Order.objects.filter(order_no=order_no).exists():
+    #             self.order_no = order_no
+    #             break
+    #     super().save(*args, **kwargs)
+
     date = models.DateTimeField(verbose_name="Data", auto_now_add=True)
     client = models.ForeignKey(to=User, verbose_name="Klientas", on_delete=models.SET_NULL, null=True)
     baldas = models.ForeignKey(to="baldas", verbose_name="Baldas", on_delete=models.CASCADE)
@@ -232,7 +257,7 @@ class Order(models.Model):
         ('g', "Gamyboje"),
         ('i', "Išsiųstas"),
         ('v', "Įvykdytas"),
-        ('a', "Atšaukta"),
+        ('t', "Atšaukta"),
     )
 
     status = models.CharField(verbose_name="Būsena", max_length=1, choices=STATUS, default="p", help_text='Statusas')

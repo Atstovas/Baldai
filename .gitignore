@@ -22,4 +22,4 @@
 /mysite/baldai/migrations/0019_alter_baldas_serijos_nr_alter_order_order_no.py
 /mysite/db.sqlite3
 /mysite/mysite/settings.py
-/mysite/mysite/settings.py
+/mysite/baldai/gpio_17pin.py
