@@ -11,6 +11,7 @@ from django.db.models import Sum
 from django.urls import reverse
 import subprocess
 import platform
+import sys
 
 
 utc = pytz.UTC
@@ -236,7 +237,7 @@ class Order(models.Model):
         if is_new:
             try:
                 if platform.system() == 'Linux':
-                    print("Running the script on Linux")
+                    print("Running the script gpio_17pin.py on Linux", file=sys.stderr)
                     subprocess.run(['sudo', 'python3', '/var/www/mysite/baldai/gpio_17pin.py'])
                 else:
                     print("Unknown operating system")
