@@ -235,23 +235,13 @@ class Order(models.Model):
         # If the instance is new, run the script
         if is_new:
             try:
-                if platform.system() == 'Windows':
-                    print("Running the script on Windows")
-                elif platform.system() == 'Linux':
+                if platform.system() == 'Linux':
                     print("Running the script on Linux")
-                    subprocess.run(['sudo', 'su', '-s', '/bin/bash', '-c', 'python3 /baldai/gpio_17pin.py'])
+                    subprocess.run(['sudo', 'python3', '/baldai/gpio_17pin.py'])
                 else:
                     print("Unknown operating system")
             except subprocess.CalledProcessError as e:
                 print(f"Error occurred while trying to run script: {e}")
-
-    # def save(self, *args, **kwargs):
-    #     while True:
-    #         order_no = uuid.uuid4().hex[:6].upper()
-    #         if not Order.objects.filter(order_no=order_no).exists():
-    #             self.order_no = order_no
-    #             break
-    #     super().save(*args, **kwargs)
 
     date = models.DateTimeField(verbose_name="Data", auto_now_add=True)
     client = models.ForeignKey(to=User, verbose_name="Klientas", on_delete=models.SET_NULL, null=True)
