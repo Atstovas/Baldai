@@ -238,7 +238,7 @@ class Order(models.Model):
             try:
                 if platform.system() == 'Linux':
                     print("Running the script gpio_17pin.py on Linux", file=sys.stderr)
-                    subprocess.run(['sudo', 'python3', '/var/www/mysite/baldai/gpio_17pin.py'])
+                    subprocess.run(['sudo', '-u', 'www-data', 'python3', '/var/www/mysite/baldai/gpio_17pin.py'])
                 else:
                     print("Unknown operating system")
             except subprocess.CalledProcessError as e:
